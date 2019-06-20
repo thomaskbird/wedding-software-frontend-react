@@ -92,11 +92,11 @@ export default (
                         resources: [
                             path.resolve(
                                 __dirname,
-                                "../node_modules/@blueprintjs/core/lib/scss/variables.scss"
+                                "src/styles/variables.scss"
                             ),
                             path.resolve(
                                 __dirname,
-                                "../src/styles/base-variables.scss"
+                                "src/styles/mixins.scss"
                             )
                         ]
                     }

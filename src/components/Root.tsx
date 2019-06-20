@@ -33,8 +33,13 @@ export class Root extends React.Component<Props, State> {
      */
     public render(): JSX.Element {
         return (
-            <div className={"Root"}>
-                <h1>Boilerplate Root Element</h1>
+            <div className={"container container__hero"}>
+                <div className={"container__inner"}>
+                    <h1>Boilerplate Root Element</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aspernatur beatae commodi delectus
+                        eligendi fuga libero pariatur reiciendis. Aliquid commodi doloribus magnam nihil tempora totam
+                        voluptatem? Asperiores cum magnam molestias?</p>
+                </div>
             </div>
         );
     }

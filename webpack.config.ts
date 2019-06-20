@@ -183,11 +183,11 @@ export default (env: Env = {}) => {
                                 resources: [
                                     path.resolve(
                                         __dirname,
-                                        "node_modules/@blueprintjs/core/lib/scss/variables.scss"
+                                        "src/styles/variables.scss"
                                     ),
                                     path.resolve(
                                         __dirname,
-                                        "src/styles/base-variables.scss"
+                                        "src/styles/mixins.scss"
                                     )
                                 ]
                             }
@@ -264,9 +264,7 @@ export default (env: Env = {}) => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                title: isSandbox
-                    ? "The Sandbox"
-                    : "React Typescript Boilerplate",
+                title: "React Typescript Boilerplate",
                 template: PATHS.src + "/index.ejs",
                 publicPath: webAppRootPath + URL_PATHS.publicStatic
             }),

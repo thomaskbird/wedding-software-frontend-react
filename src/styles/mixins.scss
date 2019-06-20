@@ -1,0 +1,85 @@
+@mixin globalHeaderStyles() {
+    color: $blue;
+    margin: 10px 0;
+    font-weight: 700;
+    font-family: bounce-script, sans-serif;
+}
+
+@mixin btn() {
+    flex: 1;
+    border: 0;
+    padding: 20px 30px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 1.2rem;
+
+    &Group {
+        display: flex;
+        flex-direction: row;
+
+        & button:first-child {
+            border-right: none;
+            border-top-left-radius: $btn-radius-large;
+            border-bottom-left-radius: $btn-radius-large;
+        }
+
+        & button:last-child {
+            border-top-right-radius: $btn-radius-large;
+            border-bottom-right-radius: $btn-radius-large;
+        }
+    }
+
+    &__success {
+        color: $white;
+        background: $color-success;
+        border: 1px solid darken($color-success, 30%);
+
+        &.active {
+            background: darken($color-success, 30%);
+            border: 1px solid darken($color-success, 45%);
+        }
+    }
+
+    &__primary {
+        color: $white;
+        background: $blue;
+        border: 1px solid darken($blue, 30%);
+
+        &.active {
+            background: darken($blue, 30%);
+            border: 1px solid darken($blue, 45%);
+        }
+    }
+
+    &__danger {
+        color: $white;
+        background: $color-danger;
+        border: 1px solid darken($color-danger, 30%);
+
+        &.active {
+            background: darken($color-danger, 30%);
+            border: 1px solid darken($color-danger, 45%);
+        }
+    }
+}
+
+@mixin formElement() {
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    color: $color-grey-mid;
+    border: 1px solid $color-grey-mid;
+    transition: 0.25s all ease-in;
+
+    &:hover {
+        color: $color-grey-dark-mid;
+        border: 1px solid $color-grey-dark-mid;
+    }
+
+    &:focus {
+        outline: none;
+        color: $color-grey-dark-mid;
+        border: 1px solid $color-blue;
+    }
+}

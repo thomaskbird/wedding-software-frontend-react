@@ -1,0 +1,11 @@
+.container {
+    &__inner {
+        width: 1170px;
+        margin: 0 auto;
+    }
+
+    &__hero {
+        height: 600px;
+        background: url(/img/hero.jpg) no-repeat center top;
+    }
+}

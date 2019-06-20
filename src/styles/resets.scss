@@ -1,0 +1,45 @@
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("//use.typekit.net/esv8hlu.css");
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include globalHeaderStyles();
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.4rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 2.6rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+p {
+    font-weight: 300;
+    line-height: 150%;
+}
