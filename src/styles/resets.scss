@@ -66,3 +66,31 @@ strong {
         text-align: center;
     }
 }
+
+@media(max-width: 767px) {
+    body {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+        letter-spacing: .3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        letter-spacing: .2rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+        letter-spacing: .1rem;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 1rem;
+        letter-spacing: .1rem;
+    }
+}
