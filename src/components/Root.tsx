@@ -52,6 +52,8 @@ export class Root extends React.Component<Props, State> {
         };
     }
 
+    private galleryImageCount = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+
     /**
      * @inheritDoc
      */
@@ -264,7 +266,7 @@ export class Root extends React.Component<Props, State> {
 
                     <div className={"container container__gallery"}>
 
-                        {Array.apply(null, { length: 29 }).map((e: any, i: any) => (
+                        {this.galleryImageCount.map((e: any, i: any) => (
                             <div className={"thumbnail"} key={i}>
                                 <img
                                     src={`/public/gallery/image-${i+1}.jpg`}
@@ -276,7 +278,7 @@ export class Root extends React.Component<Props, State> {
                                     }}
                                 />
                             </div>
-                        )}
+                        ))}
 
                         <div className={"gallery__text"}>
                             <h2>Gallery</h2>
