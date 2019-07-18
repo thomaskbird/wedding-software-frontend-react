@@ -1,11 +1,479 @@
+.wrapper {
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+}
+
 .container {
     &__inner {
         width: 1170px;
         margin: 0 auto;
+        padding: 50px 0;
+        box-sizing: border-box;
+    }
+
+    &__row {
+        display: flex;
+
+        &--stacked {
+            flex-direction: column;
+        }
+    }
+
+    &__columns-full-width {
+        display: flex;
+        flex: 1;
+
+        &--inside {
+            flex: 1 0 585px;
+        }
+    }
+
+    &__no-padding {
+        padding: 0;
     }
 
     &__hero {
+        display: flex;
         height: 600px;
-        background: url(/img/hero.jpg) no-repeat center top;
+        background: url("/public/img/hero-3.jpg") no-repeat center top;
+        background-size: cover;
+
+        &__headline {
+            padding: 4px;
+            margin: 50px auto;
+            width: fit-content;
+            border: 10px solid rgba(127, 147, 172, .5);
+
+            span {
+                color: $white;
+                display: block;
+                font-size: 2rem;
+                font-weight: 600;
+                padding: 1rem 5rem;
+                letter-spacing: 0.4rem;
+                text-transform: uppercase;
+                background: rgba(127, 147, 172, .75);
+                text-shadow: 0 1px 5px rgba(0,0,0,.5);
+                font-family: trumpgothicpro, sans-serif;
+            }
+        }
+
+        .container__inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__meet-the-couple {
+        display: flex;
+        padding-top: 4rem;
+
+        .column {
+            padding: 4rem 2rem;
+            box-sizing: border-box;
+
+            h2 {
+                margin: 3rem 0 0 0;
+            }
+
+            h4 {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 100;
+                color: $grey-medium-dark;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+        }
+    }
+
+    &__meet-the-bridal-party {
+        background: $white-grey;
+        padding: 5rem 0;
+
+        .bridal {
+            flex-wrap: wrap;
+            margin-top: 3rem;
+
+            &__party {
+                padding: 30px;
+                flex: 1 0 50%;
+                box-sizing: border-box;
+
+                &--image {
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        overflow: hidden;
+                        margin: 0 30px 0 0;
+                        border-radius: 500px;
+                        border: 8px solid #fff;
+                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                    }
+                }
+
+                &--text {
+                    flex: 1;
+
+                    h3,
+                    h5 {
+                        margin: 0;
+                    }
+
+                    h3 {
+                        font-size: 3rem;
+                        letter-spacing: .3rem;
+                    }
+
+                    h5 {
+                        font-size: 2rem;
+                        font-weight: 100;
+                        color: $grey-medium-dark;
+                        font-family: 'Source Sans Pro', sans-serif;
+                    }
+                }
+            }
+        }
+    }
+
+    &__countdown {
+        color: $white;
+        padding: 50px 0;
+        background: url("/public/img/countdown.jpg") no-repeat center top;
+
+        h2 {
+            color: $white;
+        }
+
+        p {
+            margin: 0;
+            font-size: 2rem;
+        }
+    }
+
+    &__venue {
+        color: $white;
+        padding: 50px 0;
+        background: $blue;
+
+        h2 {
+            color: $white;
+        }
+    }
+
+    &__map {
+        .map__iframe {
+            width: 100%;
+            height: 400px;
+        }
+    }
+
+    &__gallery {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        .thumbnail {
+            font-size: 0;
+            flex: 1 0 10%;
+
+            img {
+                width: 100%;
+                opacity: .5;
+                cursor: pointer;
+                filter: grayscale(1);
+                box-sizing: border-box;
+                border: 3px solid $white;
+                transition: .5s all ease-in;
+
+                &:hover {
+                    opacity: 1;
+                    filter: grayscale(0);
+                }
+            }
+        }
+
+        .gallery__text {
+            left: 0;
+            right: 0;
+            margin: 165px auto;
+            position: absolute;
+            width: fit-content;
+            padding: 0px 100px;
+            transition: .5s all ease-in;
+            background: rgba(255,255,255,0.75);
+        }
+
+        &:hover {
+            .gallery__text {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__footer {
+        color: $white;
+        background: $grey;
+    }
+
+    &__image-modal {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        overflow: hidden;
+        position: absolute;
+        background: rgba(0,0,0,.5);
+
+        &.open {
+            display: block;
+        }
+
+        img {
+            height: 80%;
+            margin-top: 5%;
+            max-width: 100%;
+            box-sizing: border-box;
+            border: 10px solid $white;
+            box-shadow: 0 1px 40px rgba(0,0,0,.25);
+        }
+    }
+}
+
+.page {
+    &__header {
+        border-bottom: 1px solid #000;
+    }
+}
+
+.header {
+    &__divider {
+        height: 5px;
+        width: 100px;
+        margin: 2rem auto;
+
+        &--white {
+            background: $white;
+        }
+
+        &--grey {
+            background: $grey;
+        }
+    }
+}
+
+.column {
+    flex: 1;
+}
+
+.navbar {
+    display: flex;
+
+    &__wrapper {
+        flex: 1;
+    }
+
+    &__brand {
+        color: $white;
+        font-size: 3rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        text-decoration: none;
+        letter-spacing: 0.6rem;
+        text-transform: uppercase;
+        font-family: trumpgothicpro, sans-serif;
+        text-shadow: 0 1px 5px rgba(111, 67, 97, .5);
+    }
+
+    &__mobile {
+        display: none;
+    }
+
+    &__navigation {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+
+        ul {
+            display: flex;
+            list-style: none;
+            margin: 10px 0 0;
+
+            li {
+                a {
+                    color: $white;
+                    display: flex;
+                    margin: 0 10px;
+                    cursor: pointer;
+                    font-size: 2rem;
+                    padding: 15px 0px;
+                    text-decoration: none;
+                    font-family: trumpgothicpro, sans-serif;
+                    text-shadow: 0 1px 5px rgba(111, 67, 97, .5);
+
+                    &:hover {
+                        border-bottom: 1px solid $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.profile {
+    &__image {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 500px;
+        border: 15px solid #fff;
+        box-shadow: 0 9px 20px rgba(0,0,0, .1);
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+@media(max-width: 1170px) {
+    .container {
+        &__inner {
+            width: 1024px;
+        }
+    }
+}
+
+@media(max-width: 1024px) {
+    .container {
+        &__inner {
+            width: 100%;
+            padding: 1rem 2rem;
+        }
+
+        &__gallery {
+            .thumbnail {
+                flex: 1 0 20%;
+            }
+        }
+    }
+
+    .navbar {
+        &__wrapper {
+            flex: 1;
+            margin-top: 30px;
+            margin-right: 10px;
+            position: relative;
+            flex-direction: column;
+        }
+
+        &__mobile {
+            display: block;
+            text-align: right;
+
+            svg {
+                cursor: pointer;
+            }
+        }
+
+        &__navigation {
+            display: none;
+
+            &.open {
+                display: block;
+            }
+
+            ul {
+                right: 0;
+                width: 50%;
+                right: -10px;
+                padding: 10px 0;
+                min-width: 300px;
+                text-align: right;
+                border-radius: 5px;
+                background: $white;
+                position: absolute;
+                flex-direction: column;
+                box-shadow: 0 3px 12px rgba(0,0,0,.25);
+
+                a {
+                    padding: 5px 30px !important;
+                    margin: 0 !important;
+                    color: $grey !important;
+                    justify-content: flex-end;
+                    text-shadow: none !important;
+                    text-decoration: none !important;
+
+                    &:hover {
+                        background: $white-grey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .container {
+        &__meet-the-couple {
+            .bride--groom {
+                flex-direction: column;
+                padding: 1rem 0rem;
+            }
+
+            .column {
+
+            }
+        }
+
+        &__image-modal {
+            img {
+                height: auto;
+                margin: 5%;
+                max-width: 80%;
+            }
+        }
+
+        &__gallery {
+            .thumbnail {
+                flex: 1 0 50%;
+            }
+        }
+
+        &__countdown {
+            background-size: cover;
+        }
+    }
+}
+
+@media(max-width: 600px) {
+    .bridal__party {
+        .container__row {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        img {
+            width: 200px !important;
+            height: 200px !important;
+        }
+    }
+
+    .container {
+        &__meet-the-bridal-party {
+            .bridal {
+                &__party {
+                    &--image {
+                        img {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -122,7 +122,10 @@
     "shortid": "2.2.14",
     "ts-enum-util": "4.0.0-alpha.20181015",
     "ts-key-enum": "2.0.0",
-    "url": "0.11.0"
+    "url": "0.11.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4"
   },
   "scripts": {
     "npm-install": "npm install",

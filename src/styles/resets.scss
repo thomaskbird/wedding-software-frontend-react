@@ -1,9 +1,12 @@
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("//use.typekit.net/esv8hlu.css");
+@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700&display=swap");
 
 body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
+    color: $grey;
+    font-size: 1.4rem;
+    font-weight: 200;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1,
@@ -12,34 +15,54 @@ h3,
 h4,
 h5,
 h6 {
-    @include globalHeaderStyles();
+    color: $grey;
+    margin: 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: trumpgothicpro, sans-serif;
 }
 
 h1 {
     font-size: 5rem;
+    letter-spacing: .6rem;
 }
 
 h2 {
     font-size: 4rem;
+    letter-spacing: .5rem;
 }
 
 h3 {
     font-size: 3.4rem;
+    letter-spacing: .55rem;
 }
 
 h4 {
     font-size: 3rem;
+    letter-spacing: .4rem;
 }
 
 h5 {
     font-size: 2.6rem;
+    letter-spacing: .35rem;
 }
 
 h6 {
     font-size: 2rem;
+    letter-spacing: .3rem;
 }
 
 p {
-    font-weight: 300;
     line-height: 150%;
+}
+
+b,
+strong {
+    font-weight: 400;
+}
+
+.text {
+    &--center {
+        text-align: center;
+    }
 }
