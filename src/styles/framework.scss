@@ -500,3 +500,12 @@
         }
     }
 }
+
+@media(max-width: 405px) {
+    .bride--groom {
+        .profile__image {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
