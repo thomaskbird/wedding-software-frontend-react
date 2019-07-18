@@ -422,14 +422,34 @@
 
 @media(max-width: 767px) {
     .container {
+
         &__meet-the-couple {
+            .column {
+                h4 {
+                    font-size: 1rem;
+                }
+            }
+
             .bride--groom {
                 flex-direction: column;
                 padding: 1rem 0rem;
             }
+        }
 
-            .column {
+        &__meet-the-bridal-party {
+            .bridal {
+                &__party {
+                    &--text {
+                        h3 {
+                            font-size: 2rem;
+                            letter-spacing: .2rem;
+                        }
 
+                        h5 {
+                            font-size: 1rem;
+                        }
+                    }
+                }
             }
         }
 
