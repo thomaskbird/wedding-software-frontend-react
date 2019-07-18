@@ -1,5 +1,6 @@
 .wrapper {
     display: none;
+    -webkit-overflow-scrolling: touch;
 
     &.visible {
         display: block;
