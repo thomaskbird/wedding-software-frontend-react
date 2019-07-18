@@ -363,6 +363,10 @@
                 flex: 1 0 20%;
             }
         }
+
+        &__countdown {
+            background-size: cover;
+        }
     }
 
     .navbar {
@@ -422,6 +426,16 @@
 
 @media(max-width: 767px) {
     .container {
+        &__hero__headline {
+            margin: 10px;
+
+            span {
+                font-size: 1.4rem;
+                text-align: center;
+                padding: 1rem 2rem;
+                letter-spacing: .2rem;
+            }
+        }
 
         &__meet-the-couple {
             .column {
@@ -453,6 +467,12 @@
             }
         }
 
+        &__countdown {
+            p {
+                font-size: 1rem;
+            }
+        }
+
         &__image-modal {
             img {
                 height: auto;
@@ -471,6 +491,17 @@
             background-size: cover;
         }
     }
+
+    .navbar {
+        &__wrapper {
+            margin-top: 20px;
+        }
+
+        &__brand {
+            font-size: 1.8rem;
+            letter-spacing: 0.3rem;
+        }
+    }
 }
 
 @media(max-width: 600px) {
@@ -487,8 +518,19 @@
     }
 
     .container {
+        &__meet-the-couple {
+            .column {
+                padding: 0;
+
+                h2 {
+                    margin: 1rem 0 0 0;
+                }
+            }
+        }
         &__meet-the-bridal-party {
             .bridal {
+                margin-top: 0;
+
                 &__party {
                     &--image {
                         img {
