@@ -468,6 +468,11 @@
         }
 
         &__countdown {
+            .container__inner {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
             p {
                 font-size: 1rem;
             }
