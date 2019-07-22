@@ -18,6 +18,14 @@
         &--stacked {
             flex-direction: column;
         }
+
+        .FormGroup {
+            &:first-child {
+                margin-right: 1rem;
+            }
+
+            flex: 1;
+        }
     }
 
     &__columns-full-width {
@@ -370,6 +378,21 @@
 
     textarea {
         height: 100px;
+    }
+}
+
+.rsvp {
+    &__errors {
+        color: $white;
+        padding: 1rem 3rem;
+        background: #cea8a8;
+        border: 1px solid darken(#cea8a8, 20%);
+    }
+
+    &__success {
+        padding: 1rem 3rem;
+        background: $white-grey;
+        border: 1px solid darken($white-grey, 20%);
     }
 }
 
