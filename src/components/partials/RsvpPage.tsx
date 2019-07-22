@@ -4,7 +4,7 @@ import { axiosInstance } from "../Root";
 import { Containers } from "src/components/partials/structural/Containers";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { CustomSelect, CustomSelectItem } from "src/components/partials/CustomSelect";
-import { isTruthy } from "src/components/Helpers";
+import { analyticsSend, isTruthy } from "src/components/Helpers";
 
 interface Props extends RouteComponentProps {
 
@@ -65,6 +65,10 @@ export class RsvpPage extends React.Component<Props, State> {
             isSubmitted: false,
             isErrors: false,
         };
+    }
+
+    public componentDidMount(): void {
+        analyticsSend("/p/rsvp");
     }
 
     public componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {

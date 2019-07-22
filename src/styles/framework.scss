@@ -19,6 +19,22 @@
             flex-direction: column;
         }
 
+        .column {
+            flex: 1;
+
+            &--flex-2 {
+                flex: 2;
+            }
+
+            &--flex-3 {
+                flex: 3;
+            }
+
+            &--flex-4 {
+                flex: 4;
+            }
+        }
+
         .FormGroup {
             &:first-child {
                 margin-right: 1rem;
@@ -253,6 +269,10 @@
             box-shadow: 0 1px 40px rgba(0,0,0,.25);
         }
     }
+
+    &__AccommodationsPage {
+
+    }
 }
 
 .page {
@@ -379,6 +399,22 @@
     textarea {
         height: 100px;
     }
+}
+
+a {
+    color: $blue;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+iframe {
+    max-width: 100%;
+    box-sizing: border-box;
+    border: 10px solid #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0, .1);
 }
 
 .rsvp {

@@ -5,6 +5,7 @@ import { Countdown } from "src/components/partials/Countdown";
 import { Navigation } from "src/components/partials/structural/Navigation";
 import { Containers } from "src/components/partials/structural/Containers";
 import { User } from "src/types/interfaces";
+import { analyticsSend } from "src/components/Helpers";
 
 /**
  * Props interface for {@link Root}.
@@ -39,11 +40,12 @@ export class HomeView extends React.Component<Props, State> {
 
     public componentDidMount(): void {
         axiosInstance.get(`/page/home`).then(response => {
-            console.log("response", response.data);
             this.setState({
                 bridalParty: response.data.bridalParty,
                 brideGroom: response.data.brideGroom
             });
+
+            analyticsSend("/");
         });
     }
 

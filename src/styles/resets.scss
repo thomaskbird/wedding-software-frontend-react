@@ -65,6 +65,10 @@ strong {
     &--center {
         text-align: center;
     }
+
+    &--no-margin {
+        margin: 0;
+    }
 }
 
 @media(max-width: 767px) {

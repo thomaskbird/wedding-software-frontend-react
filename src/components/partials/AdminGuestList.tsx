@@ -4,6 +4,7 @@ import "./AdminGuestList.scss";
 import { axiosInstance } from "src/components/Root";
 import { User } from "src/types/interfaces";
 import { Containers } from "src/components/partials/structural/Containers";
+import { analyticsSend } from "src/components/Helpers";
 
 interface Props {
 
@@ -29,6 +30,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                 guests: response.data.guests,
             });
         });
+        analyticsSend("/admin/guest-list");
     }
 
     public render(): JSX.Element {

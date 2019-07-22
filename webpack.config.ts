@@ -264,7 +264,7 @@ export default (env: Env = {}) => {
         },
         plugins: [
             new HtmlWebpackPlugin({
-                title: "React Typescript Boilerplate",
+                title: "Grace & Tom",
                 template: PATHS.src + "/index.ejs",
                 publicPath: webAppRootPath + URL_PATHS.publicStatic
             }),

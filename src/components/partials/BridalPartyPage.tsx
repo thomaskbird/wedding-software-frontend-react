@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Containers } from "src/components/partials/structural/Containers";
+import { analyticsSend } from "src/components/Helpers";
 
 interface Props {
 
@@ -14,6 +15,10 @@ export class BridalPartyPage extends React.Component<Props, State> {
         super(props, context);
 
         this.state = {};
+    }
+
+    public componentDidMount(): void {
+        analyticsSend("/p/bridal-party");
     }
 
     public render(): JSX.Element {
