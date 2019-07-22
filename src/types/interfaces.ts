@@ -1,3 +1,8 @@
+enum YesNo {
+    yes = "yes",
+    no = "no"
+}
+
 interface Timestamps {
     created_at: string;
     updated_at: string;
@@ -5,22 +10,27 @@ interface Timestamps {
 }
 
 export interface User extends Timestamps {
+    id: number;
+    parent_id: number;
     account_id: number;
+    type_id: number;
+    first_name: string;
+    last_name: string;
+    title: string;
+    description: string;
     address_1: string;
     address_2: string;
-    bridal_party_order: number;
     city: string;
-    description: string;
-    email: string;
-    first_name: string;
-    id: number;
-    last_name: string;
-    phone: string;
-    profile_image: string;
-    rsvp_at: string;
     state: string;
-    title: string;
-    type_id: number;
-    updated_at: string;
     zip: number;
+    phone: string;
+    email: string;
+    profile_image: string;
+    bridal_party_order: number;
+    plus_one: YesNo;
+    plus_one_name: string;
+    rsvp: YesNo;
+    rsvp_at: string;
+    created_at: string;
+    updated_at: string;
 }

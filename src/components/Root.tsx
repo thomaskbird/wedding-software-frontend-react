@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { HomeView } from "src/components/views/HomeView";
 import { PageView } from "src/components/views/PageView";
+import { AdminView } from "src/components/views/AdminView";
 
 export const axiosInstance = axios.create({
     baseURL: `http://api.graceandtom.com/api`
@@ -62,6 +63,10 @@ export class Root extends React.Component<Props, State> {
                     <Route
                         path={"/p/:slug"}
                         component={PageView}
+                    />
+                    <Route
+                        path={"/admin/:slug"}
+                        component={AdminView}
                     />
                 </>
             </Switch>

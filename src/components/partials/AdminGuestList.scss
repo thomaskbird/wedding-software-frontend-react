@@ -1,0 +1,33 @@
+.GuestList {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &__wrapper {
+        position: relative;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    &__item {
+        &:nth-child(even) {
+            background: $white-grey;
+        }
+
+        &:hover {
+            background: #ddd;
+        }
+
+        &--header {
+            background: #eee;
+        }
+
+        &--column {
+            text-align: left;
+            font-size: 1rem;
+            padding: 10px 15px;
+        }
+    }
+}
