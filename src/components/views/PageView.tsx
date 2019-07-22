@@ -29,6 +29,7 @@ export class PageView extends React.Component<Props, State> {
 
         this.state = {
             showNav: false,
+            // @ts-ignore
             currentPath: props.match.params.slug,
         };
     }
@@ -36,6 +37,7 @@ export class PageView extends React.Component<Props, State> {
     public componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any): void {
         if(this.props.location && prevProps.location && this.props.location.pathname !== prevProps.location.pathname) {
             this.setState({
+                // @ts-ignore
                 currentPath: this.props.match && this.props.match.params && this.props.match.params.slug
             });
         }

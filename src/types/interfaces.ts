@@ -4,7 +4,7 @@ interface Timestamps {
     deleted_at: string | null;
 }
 
-interface User extends Timestamps {
+export interface User extends Timestamps {
     account_id: number;
     address_1: string;
     address_2: string;
@@ -24,5 +24,3 @@ interface User extends Timestamps {
     updated_at: string;
     zip: number;
 }
-
-export { User };
