@@ -1,12 +1,7 @@
 .wrapper {
-    display: none;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-
-    &.visible {
-        display: block;
-    }
 }
 
 .container {
@@ -43,6 +38,11 @@
         height: 600px;
         background: url("/public/img/hero-3.jpg") no-repeat center top;
         background-size: cover;
+
+        &.inside {
+            height: 90px;
+            background-position-y: center;
+        }
 
         &__headline {
             padding: 4px;
@@ -427,7 +427,7 @@
 @media(max-width: 767px) {
     .container {
         &__hero__headline {
-            margin: 10px;
+            margin: 10px auto;
 
             span {
                 font-size: 1.4rem;
@@ -453,6 +453,15 @@
         &__meet-the-bridal-party {
             .bridal {
                 &__party {
+                    .container__row {
+                        flex-direction: column;
+                        text-align: center;
+
+                        img {
+                            margin: 0;
+                        }
+                    }
+
                     &--text {
                         h3 {
                             font-size: 2rem;
