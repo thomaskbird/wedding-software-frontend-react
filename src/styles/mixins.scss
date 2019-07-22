@@ -58,21 +58,30 @@
 }
 
 @mixin formElement() {
-    font-size: 0.8rem;
     padding: 10px 15px;
     box-sizing: border-box;
-    color: $color-grey-mid;
-    border: 1px solid $color-grey-mid;
+    color: $grey-medium;
+    border: 1px solid $grey-medium;
     transition: 0.25s all ease-in;
 
+    &[disabled] {
+        cursor: not-allowed;
+        color: $grey-medium-dark;
+        border: 1px solid $grey-light;
+
+        &:hover {
+            border: 1px solid #ecbdbd;
+        }
+    }
+
     &:hover {
-        color: $color-grey-dark-mid;
-        border: 1px solid $color-grey-dark-mid;
+        color: darken($grey-medium, 20%);
+        border: 1px solid darken($grey-medium, 20%);
     }
 
     &:focus {
         outline: none;
-        color: $color-grey-dark-mid;
-        border: 1px solid $color-blue;
+        color: $blue;
+        border: 1px solid $blue;
     }
 }

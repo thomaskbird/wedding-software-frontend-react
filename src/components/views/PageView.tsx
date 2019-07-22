@@ -61,7 +61,7 @@ export class PageView extends React.Component<Props, State> {
                             component={VenuePage}
                         />
                         <Route
-                            path={"/p/rsvp"}
+                            path={"/p/rsvp/:identifier?"}
                             component={RsvpPage}
                         />
                         <Route

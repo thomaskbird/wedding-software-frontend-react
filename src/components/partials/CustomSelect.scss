@@ -1,0 +1,42 @@
+.CustomSelect {
+    input {
+
+    }
+
+    &__dropdown-wrapper {
+        &--trigger {
+            display: flex;
+            font-size: 1rem;
+            @include formElement();
+
+            &--text {
+                flex: 1;
+            }
+
+            &--icon {
+
+            }
+        }
+
+        &--list {
+            display: none;
+            padding: 5px 0;
+            margin-top: .4rem;
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.05);
+
+            &.open {
+                display: block;
+            }
+
+            &-item {
+                font-size: 1rem;
+                cursor: pointer;
+                padding: 10px 20px;
+
+                &:hover {
+                    background: $white-grey;
+                }
+            }
+        }
+    }
+}

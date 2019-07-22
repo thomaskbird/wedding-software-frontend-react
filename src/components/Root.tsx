@@ -5,6 +5,8 @@ import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faBars,
+    faChevronDown,
+    faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { HomeView } from "src/components/views/HomeView";
 import { PageView } from "src/components/views/PageView";
@@ -15,6 +17,8 @@ export const axiosInstance = axios.create({
 
 library.add(
     faBars,
+    faChevronDown,
+    faChevronUp,
 );
 
 /**
