@@ -176,9 +176,14 @@
         color: $white;
         padding: 50px 0;
         background: url("/public/img/countdown.jpg") no-repeat center top;
+        background-size: cover;
 
         h2 {
             color: $white;
+        }
+
+        h5 {
+            margin-bottom: 40px;
         }
 
         p {

@@ -23,6 +23,28 @@
         }
     }
 
+    &__more-padding {
+        padding: 10px 40px;
+    }
+
+    &__rounded-corners {
+        border-radius: 100px;
+    }
+
+    &__transparent {
+        color: $white;
+        font-weight: 600;
+        font-size: 1.6rem;
+        background: transparent;
+        border: 3px solid $white;
+        font-family: trumpgothicpro, sans-serif;
+
+        &:hover {
+            background: rgba(255,255,255, .2);
+            text-decoration: none;
+        }
+    }
+
     &__success {
         color: $white;
         background: #beffca;

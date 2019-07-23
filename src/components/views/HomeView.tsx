@@ -7,6 +7,7 @@ import { Containers } from "src/components/partials/structural/Containers";
 import { User } from "src/types/interfaces";
 import { analyticsSend } from "src/components/Helpers";
 import { Footer } from "src/components/partials/structural/Footer";
+import { Link } from "react-router-dom";
 
 /**
  * Props interface for {@link Root}.
@@ -66,9 +67,9 @@ export class HomeView extends React.Component<Props, State> {
                     />
 
                     <div className={"container__hero__headline"}>
-                            <span>
-                                September 28th, 2019 at 3:30pm
-                            </span>
+                        <span>
+                            September 28th, 2019 at 3:30pm
+                        </span>
                     </div>
                 </Containers>
 
@@ -144,6 +145,8 @@ export class HomeView extends React.Component<Props, State> {
                     <Countdown date={`2019-09-28T15:30:00`} />
                     <h2>The countdown has begun!</h2>
                     <h5>September 28th, 2019 at 3:30pm</h5>
+
+                    <Link className={"btn btn__transparent btn__more-padding btn__rounded-corners"} to={"/p/rsvp"}>RSVP</Link>
                 </Containers>
 
                 <div className={"container container__map"}>
