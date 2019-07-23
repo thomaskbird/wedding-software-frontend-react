@@ -1,4 +1,5 @@
 .wrapper {
+    height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -21,6 +22,11 @@
 
         .column {
             flex: 1;
+            margin-right: 2rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
 
             &--flex-2 {
                 flex: 2;
@@ -182,9 +188,12 @@
     }
 
     &__venue {
-        color: $white;
         padding: 50px 0;
-        background: $blue;
+
+        &.blue {
+            color: $white;
+            background: $blue;
+        }
 
         h2 {
             color: $white;
@@ -318,10 +327,15 @@
         text-transform: uppercase;
         font-family: trumpgothicpro, sans-serif;
         text-shadow: 0 1px 5px rgba(111, 67, 97, .5);
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &__mobile {
         display: none;
+        font-size: 1.6rem;
     }
 
     &__navigation {
@@ -368,6 +382,16 @@
         img {
             max-width: 100%;
         }
+    }
+}
+
+.image {
+    &__decoration {
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: 15px solid #fff;
+        box-shadow: 0 9px 20px rgba(0,0,0, .1);
     }
 }
 
@@ -431,27 +455,6 @@ iframe {
         border: 1px solid darken($white-grey, 20%);
     }
 }
-/*
-.btn {
-    outline: none;
-    font-size: 2rem;
-    cursor: pointer;
-    border-radius: 0;
-    padding: 1rem 2.4rem;
-    font-family: trumpgothicpro, sans-serif;
-
-    &--primary {
-        color: $white;
-        background: $blue;
-        border: 1px solid darken($blue, 10%);
-
-        &:hover {
-            background: darken($blue, 10%);
-            border: 1px solid darken($blue, 20%);
-        }
-    }
-}
-*/
 
 .btn {
     @include btn();
@@ -618,6 +621,12 @@ iframe {
         &__countdown {
             background-size: cover;
         }
+
+        .container__row {
+            .column:first-child {
+                margin-right: 0;
+            }
+        }
     }
 
     .navbar {
@@ -630,13 +639,36 @@ iframe {
             letter-spacing: 0.3rem;
         }
     }
+
+    iframe {
+        width: 100%;
+    }
+
+    .image {
+        &__decoration {
+            width: 100%;
+        }
+    }
 }
 
 @media(max-width: 600px) {
+    .container__row {
+        flex-direction: column;
+
+        .FormGroup:first-child {
+            margin-right: 0;
+        }
+    }
+
     .bridal__party {
         .container__row {
             flex-direction: column;
             text-align: center;
+
+
+            .FormGroup:first-child {
+                margin-right: 0;
+            }
         }
 
         img {

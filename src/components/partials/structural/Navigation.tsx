@@ -15,7 +15,9 @@ export class Navigation extends React.Component<NavigationProps, State> {
     constructor(props: NavigationProps, context:any) {
         super(props, context);
 
-        this.state = {};
+        this.state = {
+            showNav: false
+        };
     }
 
     public render(): JSX.Element {
@@ -33,13 +35,13 @@ export class Navigation extends React.Component<NavigationProps, State> {
                     </div>
                     <div className={this.props.showNav ? "navbar__navigation open" : "navbar__navigation"}>
                         <ul>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/"}>Home</Link></li>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/p/venue"}>Venue</Link></li>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/p/rsvp"}>RSVP</Link></li>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/p/bridal-party"}>Bridal Party</Link></li>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/p/accommodations"}>Accommodations</Link></li>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/p/music"}>Music</Link></li>
-                            <li><Link onClick={() => this.setState({ showNav: false })} to={"/p/contact"}>Contact</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/"}>Home</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/venue"}>Venue</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/rsvp"}>RSVP</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/bridal-party"}>Bridal Party</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/accommodations"}>Accommodations</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/music"}>Music</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/contact"}>Contact</Link></li>
                         </ul>
                     </div>
                 </div>

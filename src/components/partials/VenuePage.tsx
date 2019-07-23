@@ -23,8 +23,27 @@ export class VenuePage extends React.Component<Props, State> {
 
     public render(): JSX.Element {
         return (
-            <Containers>
-                <h1>Venue</h1>
+            <Containers
+                extraClasses={"container__venue"}
+            >
+                <div className={"container__row"}>
+                    <div className={"column column--flex-2"}>
+
+                        <img className={"image__decoration"} src={"/public/img/ceremony-room.jpg"} />
+
+                        <p>Laurel Manor is located in Livonia, MI, it's conveniently close to the <a target="_blank" href="https://www.google.com/maps/place/Detroit+Metropolitan+Wayne+County+Airport/@42.2161762,-83.3575729,17z/data=!3m1!4b1!4m5!3m4!1s0x883b4f5ddaf0b305:0x2341c0cf25bf98fb!8m2!3d42.2161722!4d-83.3553842">Detroit Metro Airport</a> only a 20min drive from the venue.</p>
+
+                    </div>
+
+                    <div className={"AccommodationsPage__map column"}>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11788.494321582066!2d-83.4262516!3d42.3825138!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x679ffbad58d3347e!2sLaurel+Manor!5e0!3m2!1sen!2sus!4v1563846657123!5m2!1sen!2sus"
+                        />
+
+                        <h6>Laurel Manor Banquet & Conference Center</h6>
+                        <p>39000 Schoolcraft, Livonia, MI 48150</p>
+                    </div>
+                </div>
             </Containers>
         );
     }

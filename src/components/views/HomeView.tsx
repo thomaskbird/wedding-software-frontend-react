@@ -72,7 +72,7 @@ export class HomeView extends React.Component<Props, State> {
                 </Containers>
 
                 <Containers
-                    extraClasses={"container__venue"}
+                    extraClasses={"container__venue blue"}
                 >
                     <div className={"column text--center"}>
                         <h2>Venue</h2>
