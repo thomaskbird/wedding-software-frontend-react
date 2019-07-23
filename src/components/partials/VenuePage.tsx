@@ -29,7 +29,7 @@ export class VenuePage extends React.Component<Props, State> {
                 <div className={"container__row"}>
                     <div className={"column column--flex-2"}>
 
-                        <img className={"image__decoration"} src={"/public/img/ceremony-room.jpg"} />
+                        <img className={"image__decoration"} src={"http://api.graceandtom.com/img/ceremony-room.jpg"} />
 
                         <p>Laurel Manor is located in Livonia, MI, it's conveniently close to the <a target="_blank" href="https://www.google.com/maps/place/Detroit+Metropolitan+Wayne+County+Airport/@42.2161762,-83.3575729,17z/data=!3m1!4b1!4m5!3m4!1s0x883b4f5ddaf0b305:0x2341c0cf25bf98fb!8m2!3d42.2161722!4d-83.3553842">Detroit Metro Airport</a> only a 20min drive from the venue.</p>
 

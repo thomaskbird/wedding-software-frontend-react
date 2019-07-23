@@ -165,7 +165,7 @@ export class HomeView extends React.Component<Props, State> {
                     {this.galleryImageCount.map((e: any, i: any) => (
                         <div className={"thumbnail"} key={i}>
                             <img
-                                src={`/public/gallery/image-${i+1}.jpg`}
+                                src={`http://api.graceandtom.com/gallery/image-${i+1}.jpg`}
                                 onClick={() => {
                                     this.setState({
                                         showModal: true,
