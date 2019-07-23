@@ -193,7 +193,7 @@ export class HomeView extends React.Component<Props, State> {
                         this.setState({ showModal: false });
                     }}
                 >
-                    <img src={`/public/gallery/${this.state.modalImageUrl}`}/>
+                    <img src={`http://api.graceandtom.com/gallery/${this.state.modalImageUrl}`}/>
                 </div>
             </div>
         );
