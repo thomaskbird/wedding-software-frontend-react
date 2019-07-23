@@ -76,3 +76,9 @@ data-coverity/
 
 # storybook's cache dir
 .cache/
+
+# Images
+public/gallery
+public/img
+dist/gallery
+public/gallery
