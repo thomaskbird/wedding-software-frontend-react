@@ -59,8 +59,8 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <td className={"GuestList__item--column"}>{guest.city}/{guest.state}</td>
                                     <td className={"GuestList__item--column"}>{guest.email}</td>
                                     <td className={"GuestList__item--column"}>{guest.phone}</td>
-                                    <td className={"GuestList__item--column"}>{guest.rsvp}</td>
-                                    <td className={"GuestList__item--column"}>{guest.plus_one} - {guest.plus_one_name}</td>
+                                    <td className={"GuestList__item--column"}>{guest.rsvp ? guest.rsvp : "Hasn't responded"}</td>
+                                    <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one} - ${guest.plus_one_name}` : "Hasn't responded"}</td>
                                 </tr>
                             ))}
                             </tbody>
