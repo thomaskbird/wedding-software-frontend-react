@@ -9,6 +9,7 @@ import { BridalPartyPage } from "src/components/partials/BridalPartyPage";
 import { AccommodationsPage } from "src/components/partials/AccommodationsPage";
 import { MusicPage } from "src/components/partials/MusicPage";
 import { ContactPage } from "src/components/partials/ContactPage";
+import { Containers } from "src/components/partials/structural/Containers";
 
 /**
  * Props interface for {@link Root}.
@@ -83,6 +84,20 @@ export class PageView extends React.Component<Props, State> {
                         />
                     </>
                 </Switch>
+
+                <Containers
+                    extraClasses={"container__footer"}
+                >
+                    <div className={"column"}>
+                        &copy; 2019 All Rights Reserved
+                    </div>
+                    <div className={"column"}>
+
+                    </div>
+                    <div className={"column"}>
+
+                    </div>
+                </Containers>
             </div>
         );
     }

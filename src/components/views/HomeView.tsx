@@ -6,6 +6,7 @@ import { Navigation } from "src/components/partials/structural/Navigation";
 import { Containers } from "src/components/partials/structural/Containers";
 import { User } from "src/types/interfaces";
 import { analyticsSend } from "src/components/Helpers";
+import { Footer } from "src/components/partials/structural/Footer";
 
 /**
  * Props interface for {@link Root}.
@@ -177,19 +178,7 @@ export class HomeView extends React.Component<Props, State> {
                     </div>
                 </Containers>
 
-                <Containers
-                    extraClasses={"container__footer"}
-                >
-                    <div className={"column"}>
-                        &copy; 2019 All Rights Reserved
-                    </div>
-                    <div className={"column"}>
-
-                    </div>
-                    <div className={"column"}>
-
-                    </div>
-                </Containers>
+                <Footer/>
 
                 <div
                     className={`${
