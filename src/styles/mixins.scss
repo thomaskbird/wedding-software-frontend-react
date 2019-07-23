@@ -1,7 +1,7 @@
 @mixin btn() {
     flex: 1;
     border: 0;
-    padding: 20px 30px;
+    padding: 10px 30px;
     outline: none;
     cursor: pointer;
     border-radius: 0;
@@ -13,24 +13,24 @@
 
         & button:first-child {
             border-right: none;
-            border-top-left-radius: $btn-radius-large;
-            border-bottom-left-radius: $btn-radius-large;
+            border-top-left-radius: 100px;
+            border-bottom-left-radius: 100px;
         }
 
         & button:last-child {
-            border-top-right-radius: $btn-radius-large;
-            border-bottom-right-radius: $btn-radius-large;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
         }
     }
 
     &__success {
         color: $white;
-        background: $color-success;
-        border: 1px solid darken($color-success, 30%);
+        background: #beffca;
+        border: 1px solid darken(#beffca, 30%);
 
         &.active {
-            background: darken($color-success, 30%);
-            border: 1px solid darken($color-success, 45%);
+            background: darken(#beffca, 30%);
+            border: 1px solid darken(#beffca, 45%);
         }
     }
 
@@ -47,17 +47,18 @@
 
     &__danger {
         color: $white;
-        background: $color-danger;
-        border: 1px solid darken($color-danger, 30%);
+        background: #FFA39C;
+        border: 1px solid darken(#FFA39C, 30%);
 
         &.active {
-            background: darken($color-danger, 30%);
-            border: 1px solid darken($color-danger, 45%);
+            background: darken(#FFA39C, 30%);
+            border: 1px solid darken(#FFA39C, 45%);
         }
     }
 }
 
 @mixin formElement() {
+    font-size: 1rem;
     padding: 10px 15px;
     box-sizing: border-box;
     color: $grey-medium;

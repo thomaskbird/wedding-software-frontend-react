@@ -175,7 +175,7 @@ export class RsvpPage extends React.Component<Props, State> {
                                 </div>
                             ) : (undefined)}
 
-                            <button type={"submit"} className={"btn btn--primary"}>RSVP</button>
+                            <button type={"submit"} className={"btn btn__primary"}>RSVP</button>
                         </form>
                     </>
                 )}

@@ -39,6 +39,7 @@ export class AdminView extends React.Component<Props, State> {
                 <NavigationWrapper
                     showNav={this.state.showNav}
                     onToggleNavigation={() => this.setState({ showNav: !this.state.showNav })}
+                    isPublic={false}
                 />
 
                 <Switch>

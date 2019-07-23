@@ -431,6 +431,31 @@ iframe {
         border: 1px solid darken($white-grey, 20%);
     }
 }
+/*
+.btn {
+    outline: none;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 0;
+    padding: 1rem 2.4rem;
+    font-family: trumpgothicpro, sans-serif;
+
+    &--primary {
+        color: $white;
+        background: $blue;
+        border: 1px solid darken($blue, 10%);
+
+        &:hover {
+            background: darken($blue, 10%);
+            border: 1px solid darken($blue, 20%);
+        }
+    }
+}
+*/
+
+.btn {
+    @include btn();
+}
 
 @media(max-width: 1170px) {
     .container {
