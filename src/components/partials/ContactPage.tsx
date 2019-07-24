@@ -124,8 +124,8 @@ export class ContactPage extends React.Component<Props, State> {
                 name: this.state.name,
                 phone: this.state.phone,
                 email: this.state.email,
-                subject: this.state.subject,
-                message: this.state.message
+                sub: this.state.subject,
+                msg: this.state.message
             };
 
             axiosInstance
