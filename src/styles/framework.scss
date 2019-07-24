@@ -70,7 +70,7 @@
         background-size: cover;
 
         &.inside {
-            height: 90px;
+            height: fit-content;
             background-position-y: center;
         }
 
@@ -359,13 +359,16 @@
                     display: flex;
                     margin: 0 10px;
                     cursor: pointer;
+                    opacity: .75;
                     font-size: 2rem;
                     padding: 15px 0px;
                     text-decoration: none;
+                    border-bottom: 1px solid transparent;
                     font-family: trumpgothicpro, sans-serif;
                     text-shadow: 0 1px 5px rgba(111, 67, 97, .5);
 
                     &:hover {
+                        opacity: 1;
                         border-bottom: 1px solid $white;
                     }
                 }
@@ -440,6 +443,7 @@ a {
 }
 
 iframe {
+    height: 400px;
     max-width: 100%;
     box-sizing: border-box;
     border: 10px solid #fff;
@@ -530,11 +534,12 @@ iframe {
                 box-shadow: 0 3px 12px rgba(0,0,0,.25);
 
                 a {
-                    padding: 5px 30px !important;
+                    font-size: 1.4rem !important;
                     margin: 0 !important;
                     color: $grey !important;
                     justify-content: flex-end;
                     text-shadow: none !important;
+                    padding: 5px 30px !important;
                     text-decoration: none !important;
 
                     &:hover {
@@ -628,6 +633,8 @@ iframe {
         }
 
         .container__row {
+            flex-direction: column;
+
             .column:first-child {
                 margin-right: 0;
             }
