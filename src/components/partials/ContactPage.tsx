@@ -2,6 +2,7 @@ import * as React from "react";
 import { Containers } from "src/components/partials/structural/Containers";
 import { analyticsSend, isTruthy } from "src/components/Helpers";
 import { axiosInstance } from "src/components/Root";
+import { Link } from "react-router-dom";
 
 interface Props {
 
@@ -14,6 +15,7 @@ interface State {
     subject: string | undefined;
     message: string | undefined;
     isErrors: boolean;
+    isSent: boolean;
 }
 
 export class ContactPage extends React.Component<Props, State> {
@@ -26,7 +28,8 @@ export class ContactPage extends React.Component<Props, State> {
             email: "",
             subject: "",
             message: "",
-            isErrors: false
+            isErrors: false,
+            isSent: false
         };
     }
 
@@ -37,82 +40,97 @@ export class ContactPage extends React.Component<Props, State> {
     public render(): JSX.Element {
         return (
             <Containers>
-                <h2>Send us a message</h2>
-                <p>If you need anymore information or we have missed putting anything up here on the website please feel free to send us a message and let us know. We greatly appreciate it, sometimes we miss things and would love to fix it!</p>
-
-                <form onSubmit={(e) => this.submit(e)}>
-                    <div className={"container__row"}>
-                        <div className={"FormGroup"}>
-                            <label className={"FormGroup__label"} htmlFor={"name"}>Name</label>
-                            <input
-                                className={"FormGroup__input"}
-                                type={"text"}
-                                name={"name"}
-                                id={"name"}
-                                value={this.state.name}
-                                placeholder={"Enter your name..."}
-                                onChange={(e) => this.setState({ name: e.target.value })}
-                            />
-                        </div>
-
-                        <div className={"FormGroup"}>
-                            <label className={"FormGroup__label"} htmlFor={"phone"}>Phone</label>
-                            <input
-                                className={"FormGroup__input"}
-                                type={"text"}
-                                name={"phone"}
-                                id={"phone"}
-                                value={this.state.phone}
-                                placeholder={"Enter your phone number..."}
-                                onChange={(e) => this.setState({ phone: e.target.value })}
-                            />
-                        </div>
+                {this.state.isErrors ? (
+                    <div className={"rsvp__errors"}>
+                        Uh oh, something went wrong, you may not have entered the required information or something might have happened on the backend please try again!
                     </div>
+                ): (undefined)}
 
-                    <div className={"container__row"}>
-                        <div className={"FormGroup"}>
-                            <label className={"FormGroup__label"} htmlFor={"email"}>Email</label>
-                            <input
-                                className={"FormGroup__input"}
-                                type={"text"}
-                                name={"email"}
-                                id={"email"}
-                                value={this.state.email}
-                                placeholder={"Enter your email..."}
-                                onChange={(e) => this.setState({ email: e.target.value })}
-                            />
-                        </div>
-
-                        <div className={"FormGroup"}>
-                            <label className={"FormGroup__label"} htmlFor={"subject"}>Subject</label>
-                            <input
-                                className={"FormGroup__input"}
-                                type={"text"}
-                                name={"subject"}
-                                id={"subject"}
-                                value={this.state.subject}
-                                placeholder={"Enter your subject..."}
-                                onChange={(e) => this.setState({ subject: e.target.value })}
-                            />
-                        </div>
+                {this.state.isSent ? (
+                    <div className={"rsvp__success"}>
+                        <h2>Thanks for the feedback!</h2>
+                        <p>We appreciate your feedback well take a look at your message and get back to you as soon as possible!</p>
                     </div>
+                ): (
+                    <>
+                        <h2>Send us a message</h2>
+                        <p>If you need anymore information or we have missed putting anything up here on the website please feel free to send us a message and let us know. We greatly appreciate it, sometimes we miss things and would love to fix it!</p>
 
-                    <div className={"container__row"}>
-                        <div className={"FormGroup"}>
-                            <label className={"FormGroup__label"} htmlFor={"message"}>Message</label>
-                            <textarea
-                                className={"FormGroup__input"}
-                                name={"message"}
-                                id={"message"}
-                                value={this.state.message}
-                                placeholder={"Enter your message..."}
-                                onChange={(e) => this.setState({ message: e.target.value })}
-                            />
-                        </div>
-                    </div>
+                        <form onSubmit={(e) => this.submit(e)}>
+                            <div className={"container__row"}>
+                                <div className={"FormGroup"}>
+                                    <label className={"FormGroup__label"} htmlFor={"name"}>Name</label>
+                                    <input
+                                        className={"FormGroup__input"}
+                                        type={"text"}
+                                        name={"name"}
+                                        id={"name"}
+                                        value={this.state.name}
+                                        placeholder={"Enter your name..."}
+                                        onChange={(e) => this.setState({ name: e.target.value })}
+                                    />
+                                </div>
 
-                    <button type={"submit"} className={"btn btn__primary"}>Send message</button>
-                </form>
+                                <div className={"FormGroup"}>
+                                    <label className={"FormGroup__label"} htmlFor={"phone"}>Phone</label>
+                                    <input
+                                        className={"FormGroup__input"}
+                                        type={"text"}
+                                        name={"phone"}
+                                        id={"phone"}
+                                        value={this.state.phone}
+                                        placeholder={"Enter your phone number..."}
+                                        onChange={(e) => this.setState({ phone: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className={"container__row"}>
+                                <div className={"FormGroup"}>
+                                    <label className={"FormGroup__label"} htmlFor={"email"}>Email</label>
+                                    <input
+                                        className={"FormGroup__input"}
+                                        type={"text"}
+                                        name={"email"}
+                                        id={"email"}
+                                        value={this.state.email}
+                                        placeholder={"Enter your email..."}
+                                        onChange={(e) => this.setState({ email: e.target.value })}
+                                    />
+                                </div>
+
+                                <div className={"FormGroup"}>
+                                    <label className={"FormGroup__label"} htmlFor={"subject"}>Subject</label>
+                                    <input
+                                        className={"FormGroup__input"}
+                                        type={"text"}
+                                        name={"subject"}
+                                        id={"subject"}
+                                        value={this.state.subject}
+                                        placeholder={"Enter your subject..."}
+                                        onChange={(e) => this.setState({ subject: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className={"container__row"}>
+                                <div className={"FormGroup"}>
+                                    <label className={"FormGroup__label"} htmlFor={"message"}>Message</label>
+                                    <textarea
+                                        className={"FormGroup__input"}
+                                        name={"message"}
+                                        id={"message"}
+                                        value={this.state.message}
+                                        placeholder={"Enter your message..."}
+                                        onChange={(e) => this.setState({ message: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
+                            <button type={"submit"} className={"btn btn__primary"}>Send message</button>
+                        </form>
+                    </>
+                )}
             </Containers>
         );
     }
@@ -131,7 +149,7 @@ export class ContactPage extends React.Component<Props, State> {
             axiosInstance
                 .post(`/contact`, dataForRequest).then(response => {
                     console.log("response", response.data);
-                    // this.setState({ isSubmitted: true });
+                    this.setState({ isSent: true });
                 });
         } else {
             this.setState({ isErrors: true });
