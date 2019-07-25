@@ -160,7 +160,7 @@ export class RsvpPage extends React.Component<Props, State> {
                                 </div>
                             ) : (undefined)}
 
-                            {this.state.plusOne.val === "yes" ? (
+                            {this.state.plusOne.val === "yes" && this.state.coming.val === "yes" ? (
                                 <div className={"FormGroup"}>
                                     <label className={"FormGroup__label"} htmlFor={"plusOneName"}>Plus one's name</label>
                                     <input
