@@ -33,14 +33,17 @@ export class BigDay extends React.Component<Props, State> {
             >
                 <div className={"container__row"}>
                     <div className={"column column--flex-2"}>
+                        <h2>Timeline of events</h2>
+
+                        <p>As everybody knows when planning, not everything always goes according to plan, that being said we've tried to plan as best we can but some things may change. We'll try to keep this up to date as much as possible so that you can plan accordingly!</p>
 
                         {this.state.timeline.map(item => (
                             <div className={"timeline"} key={item.id}>
                                 <div className={"timeline__time"}>
-                                    <h3>{item.time}</h3>
+                                    <h5>{item.time}</h5>
                                 </div>
                                 <div className={"timeline__information"}>
-                                    <h3>{item.title}</h3>
+                                    <h5>{item.title}</h5>
                                     <p>{item.description}</p>
                                 </div>
                             </div>
