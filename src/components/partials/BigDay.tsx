@@ -40,7 +40,7 @@ export class BigDay extends React.Component<Props, State> {
                         {this.state.timeline.map(item => (
                             <div className={"timeline"} key={item.id}>
                                 <div className={"timeline__time"}>
-                                    <h5>{item.time}</h5>
+                                    <h5>{item.time} <span className={"timeline__time--title"}>{item.title}</span></h5>
                                 </div>
                                 <div className={"timeline__information"}>
                                     <h5>{item.title}</h5>

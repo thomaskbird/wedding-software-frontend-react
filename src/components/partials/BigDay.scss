@@ -6,6 +6,11 @@
     &__time {
         padding-right: 2rem;
 
+        &--title {
+            color: $grey-medium;
+            display: none;
+        }
+
         h5 {
             margin: -0.5rem 0 0;
         }
@@ -40,6 +45,32 @@
             h5 {
                 font-size: 2rem;
                 margin: -0.4rem 0 .3rem;
+            }
+        }
+    }
+}
+
+@media(max-width: 550px) {
+    .timeline {
+        padding: 3rem 0;
+        flex-direction: column;
+
+        &__time {
+            &--title {
+                display: inline;
+            }
+            h5 {
+                font-size: 2rem;
+                margin: -0.4rem 0 0;
+            }
+        }
+
+        &__information {
+            border: none;
+            padding-left: 0;
+
+            h5 {
+                display: none;
             }
         }
     }
