@@ -1,5 +1,11 @@
 # PDS Web App
 
+## Left todo
+- Registry page
+- Music page
+- Schedule / timeline
+- 
+
 ## Table of Contents
 
 -   [Getting Started](#getting-started)

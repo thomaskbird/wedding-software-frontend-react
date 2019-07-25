@@ -10,6 +10,8 @@ import { AccommodationsPage } from "src/components/partials/AccommodationsPage";
 import { MusicPage } from "src/components/partials/MusicPage";
 import { ContactPage } from "src/components/partials/ContactPage";
 import { Containers } from "src/components/partials/structural/Containers";
+import { Footer } from "src/components/partials/structural/Footer";
+import { BigDay } from "src/components/partials/BigDay";
 
 /**
  * Props interface for {@link Root}.
@@ -63,6 +65,10 @@ export class PageView extends React.Component<Props, State> {
                             component={VenuePage}
                         />
                         <Route
+                            path={"/p/big-day"}
+                            component={BigDay}
+                        />
+                        <Route
                             path={"/p/rsvp/:identifier?"}
                             component={RsvpPage}
                         />
@@ -85,19 +91,7 @@ export class PageView extends React.Component<Props, State> {
                     </>
                 </Switch>
 
-                <Containers
-                    extraClasses={"container__footer"}
-                >
-                    <div className={"column"}>
-                        &copy; 2019 All Rights Reserved
-                    </div>
-                    <div className={"column"}>
-
-                    </div>
-                    <div className={"column"}>
-
-                    </div>
-                </Containers>
+                <Footer />
             </div>
         );
     }
