@@ -143,7 +143,20 @@ export class RsvpPage extends React.Component<Props, State> {
                             <div className={"FormGroup"}>
                                 <label className={"FormGroup__label"} htmlFor={"makeit"}>Are you going to be able to make it?</label>
                                 <CustomSelect
-                                    onChange={(item) => this.setState({ coming: item })}
+                                    onChange={(item) => {
+                                        const newState: any = {
+                                            coming: item
+                                        };
+
+                                        if(item.val === "no") {
+                                            newState.plusOne = {
+                                                val: "no",
+                                                text: "No"
+                                            };
+                                            newState.plusOneName = "";
+                                        }
+                                        this.setState(newState);
+                                    }}
                                     selected={this.state.coming}
                                     list={this.state.comingList}
                                 />
@@ -153,7 +166,15 @@ export class RsvpPage extends React.Component<Props, State> {
                                 <div className={"FormGroup"}>
                                     <label className={"FormGroup__label"} htmlFor={"plusOne"}>Do you have a plus one?</label>
                                     <CustomSelect
-                                        onChange={(item) => this.setState({ plusOne: item })}
+                                        onChange={(item) => {
+                                            const newState: any = { plusOne: item };
+
+                                            if(item.val === "no") {
+                                                newState.plusOneName = "";
+                                            }
+
+                                            this.setState(newState);
+                                        }}
                                         selected={this.state.plusOne}
                                         list={this.state.plusOneList}
                                     />
