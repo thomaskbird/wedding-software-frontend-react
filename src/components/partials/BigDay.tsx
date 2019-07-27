@@ -37,6 +37,8 @@ export class BigDay extends React.Component<Props, State> {
 
                         <p>As everybody knows when planning, not everything always goes according to plan, that being said we've tried to plan as best we can but some things may change. We'll try to keep this up to date as much as possible so that you can plan accordingly!</p>
 
+                        <p>We will be having a professional photographer and videographer present to capture all of the moments, please refrain from any flash photography and additionally please stay out of the way of the photographer and videographer so that they can do their job. We greatly appreciate it!</p>
+
                         {this.state.timeline.map(item => (
                             <div className={"timeline"} key={item.id}>
                                 <div className={"timeline__time"}>
