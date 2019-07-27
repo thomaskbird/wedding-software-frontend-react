@@ -183,18 +183,20 @@ export class HomeView extends React.Component<Props, State> {
 
                 <Footer/>
 
-                <div
-                    className={`${
-                        this.state.showModal
-                            ? "container container__image-modal text--center open"
-                            : "container container__image-modal text--center"
-                        }`}
-                    onClick={() => {
-                        this.setState({ showModal: false });
-                    }}
-                >
-                    <img src={`http://api.graceandtom.com/gallery/${this.state.modalImageUrl}`}/>
-                </div>
+                {this.state.showModal ? (
+                    <div
+                        className={`${
+                            this.state.showModal
+                                ? "container container__image-modal text--center open"
+                                : "container container__image-modal text--center"
+                            }`}
+                        onClick={() => {
+                            this.setState({ showModal: false });
+                        }}
+                    >
+                        <img src={`http://api.graceandtom.com/gallery/${this.state.modalImageUrl}`}/>
+                    </div>
+                ) : (undefined)}
             </div>
         );
     }
