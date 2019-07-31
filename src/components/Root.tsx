@@ -1,6 +1,6 @@
 import "./Root.scss";
 import * as React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, RouteComponentProps, Switch } from "react-router-dom";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -25,7 +25,7 @@ library.add(
 /**
  * Props interface for {@link Root}.
  */
-interface Props {}
+interface Props extends RouteComponentProps {}
 
 /**
  * State interface for {@link Root}.
@@ -46,6 +46,47 @@ export class Root extends React.Component<Props, State> {
         super(props, context);
 
         this.state = {};
+        this.setPageTitle();
+    }
+
+    public componentDidUpdate(): void {
+        this.setPageTitle();
+    }
+
+    private setPageTitle(): void {
+        let title = "";
+
+        switch(window.location.pathname) {
+            case "/":
+                title = "Home";
+            break;
+            case "/p/big-day":
+                title = "Big Day";
+            break;
+            case "/p/venue":
+                title = "Venue";
+            break;
+            case "/p/rsvp":
+                title = "RSVP";
+            break;
+            case "/p/bridal-party":
+                title = "Bridal Party";
+            break;
+            case "/p/accommodations":
+                title = "Accommodations";
+            break;
+            case "/p/music":
+                title = "Music Request";
+            break;
+            case "/p/registry":
+                title = "Registry";
+            break;
+            case "/p/contact":
+                title = "Contact";
+            break;
+        }
+
+        document.title = `Grace & Tom | ${title}`;
     }
 
     /**
