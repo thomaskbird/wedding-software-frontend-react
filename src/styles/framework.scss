@@ -258,6 +258,14 @@
     &__footer {
         color: $white;
         background: $grey;
+
+        a {
+            color: $white;
+        }
+
+        h6 {
+            color: $white;
+        }
     }
 
     &__image-modal {
@@ -492,6 +500,16 @@ iframe {
 
         &__countdown {
             background-size: cover;
+        }
+
+        &__footer {
+            .container__row {
+                flex-wrap: wrap;
+
+                .column:first-child {
+                    flex: 1 0 100%;
+                }
+            }
         }
     }
 

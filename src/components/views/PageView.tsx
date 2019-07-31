@@ -12,6 +12,7 @@ import { ContactPage } from "src/components/partials/ContactPage";
 import { Containers } from "src/components/partials/structural/Containers";
 import { Footer } from "src/components/partials/structural/Footer";
 import { BigDay } from "src/components/partials/BigDay";
+import { RegistryPage } from "src/components/partials/RegistryPage";
 
 /**
  * Props interface for {@link Root}.
@@ -83,6 +84,10 @@ export class PageView extends React.Component<Props, State> {
                         <Route
                             path={"/p/music"}
                             component={MusicPage}
+                        />
+                        <Route
+                            path={"/p/registry"}
+                            component={RegistryPage}
                         />
                         <Route
                             path={"/p/contact"}

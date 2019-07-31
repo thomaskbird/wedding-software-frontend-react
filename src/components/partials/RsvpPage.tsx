@@ -108,7 +108,7 @@ export class RsvpPage extends React.Component<Props, State> {
                         <h2>RSVP</h2>
 
                         <p>We're so excited to take the next step in our journey together, as our special guests who mean so much to us we're extremely excited to see and celebrate together. Do us a favor and use the form below to let us know whether you'll be attending and if you'll be having a plus one, Thanks!</p>
-                        <p>Afterwards go checkout our <Link to={"/p/big-day"}>wedding day</Link> page, where you can see a tentative timeline of the days events!</p>
+                        <p>Afterwards go checkout our <Link to={"/p/big-day"}>wedding day</Link> page, where you can see a tentative timeline of the days events! Or you can go and <Link to={"/p/music"}>request a song</Link> to be played!</p>
 
                         <form onSubmit={(e) => this.submit(e)}>
                             <div className={"container__row"}>

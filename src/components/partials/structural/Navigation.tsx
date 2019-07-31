@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export interface NavigationProps {
     showNav: boolean;
     onToggleNavigation(): void;
+    additionalClasses?: string;
 }
 
 interface State {
@@ -22,7 +23,7 @@ export class Navigation extends React.Component<NavigationProps, State> {
 
     public render(): JSX.Element {
         return (
-            <div className={"navbar"}>
+            <div className={this.props.additionalClasses ? `${this.props.additionalClasses} navbar` : `navbar`}>
                 <Link className={"navbar__brand"} to={"/"}>
                     Grace + Tom
                 </Link>
@@ -42,6 +43,7 @@ export class Navigation extends React.Component<NavigationProps, State> {
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/bridal-party"}>Bridal Party</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/accommodations"}>Accommodations</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/music"}>Music</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/registry"}>Registry</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/contact"}>Contact</Link></li>
                         </ul>
                     </div>
