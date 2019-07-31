@@ -1,6 +1,6 @@
 import "./Root.scss";
 import * as React from "react";
-import { Route, RouteComponentProps, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -25,7 +25,7 @@ library.add(
 /**
  * Props interface for {@link Root}.
  */
-interface Props extends RouteComponentProps {}
+interface Props {}
 
 /**
  * State interface for {@link Root}.
