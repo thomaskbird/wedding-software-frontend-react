@@ -114,8 +114,8 @@ export class MusicPage extends React.Component<Props, State> {
                     isErrors: false,
                     isSubmitted: true,
                     submittedData: {
-                        artist: response.data.song.artist,
-                        song: response.data.song.song
+                        artist: response.data.data.song.artist,
+                        song: response.data.data.song.song
                     }
                 });
             });
