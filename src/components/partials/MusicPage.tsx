@@ -54,7 +54,7 @@ export class MusicPage extends React.Component<Props, State> {
 
                         {this.state.submittedData ? (
                             <div className={"rsvp__success"}>
-                                Your song {this.state.submittedData.song} by {this.state.submittedData.artist} was successfully requested! You can request another!
+                                Your song <b>{this.state.submittedData.song}</b> by <b>{this.state.submittedData.artist}</b> was successfully requested! You can request another!
                             </div>
                         ): (undefined)}
 
@@ -113,6 +113,8 @@ export class MusicPage extends React.Component<Props, State> {
                 this.setState({
                     isErrors: false,
                     isSubmitted: true,
+                    artist: "",
+                    song: "",
                     submittedData: {
                         artist: response.data.data.song.artist,
                         song: response.data.data.song.song
