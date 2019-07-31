@@ -41,7 +41,7 @@ export class Navigation extends React.Component<NavigationProps, State> {
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/rsvp"}>RSVP</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/bridal-party"}>Bridal Party</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/accommodations"}>Accommodations</Link></li>
-                            {/* <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/music"}>Music</Link></li> */}
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/music"}>Music</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/p/contact"}>Contact</Link></li>
                         </ul>
                     </div>

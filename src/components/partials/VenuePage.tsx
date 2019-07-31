@@ -33,6 +33,7 @@ export class VenuePage extends React.Component<Props, State> {
 
                         <p>Laurel Manor is located in Livonia, MI, it's conveniently close to the <a target="_blank" href="https://www.google.com/maps/place/Detroit+Metropolitan+Wayne+County+Airport/@42.2161762,-83.3575729,17z/data=!3m1!4b1!4m5!3m4!1s0x883b4f5ddaf0b305:0x2341c0cf25bf98fb!8m2!3d42.2161722!4d-83.3553842">Detroit Metro Airport</a> only a 20min drive from the venue. Both the ceremony and reception will be held there, the ceremony room is upstairs and for the reception we will be downstairs in the Oak Room.</p>
 
+                        <p>Doors will be open for seating at 2:30pm we ask that everyone please be seated by no later than 3:45pm. Right in the middle of the building is an elevator which you can also use to get up and down between the venues. The venue will be open for our use until 9:30pm, any personal items will need to be cleared out by then from all spaces, additionally any forgotten items will be disposed of by the venue staff if not claimed by the end of the night.</p>
                     </div>
 
                     <div className={"AccommodationsPage__map column"}>

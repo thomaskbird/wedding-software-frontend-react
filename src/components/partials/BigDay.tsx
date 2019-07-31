@@ -47,6 +47,19 @@ export class BigDay extends React.Component<Props, State> {
                                 <div className={"timeline__information"}>
                                     <h5>{item.title}</h5>
                                     <p>{item.description}</p>
+
+                                    {item.slug === "dinner" ? (
+                                        <ul>
+                                            <li><b>Entrees</b></li>
+                                            <li>Roast Sirloin carved by chef</li>
+                                            <li>Chicken Tuscan topped with sauteed Asparagus</li>
+                                            <li>Meatless vegetarianTronchetto Lasagna</li>
+                                            <li><b>Sides</b></li>
+                                            <li>Pasta Primavera</li>
+                                            <li>Medley with Asparagus Tips</li>
+                                            <li>Garlic Mashed Potatoe</li>
+                                        </ul>
+                                    ) : (undefined)}
                                 </div>
                             </div>
                         ))}
