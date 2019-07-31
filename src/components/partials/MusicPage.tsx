@@ -2,9 +2,15 @@ import * as React from "react";
 import { Containers } from "src/components/partials/structural/Containers";
 import { analyticsSend, isTruthy } from "src/components/Helpers";
 import { axiosInstance } from "src/components/Root";
+import { Link } from "react-router-dom";
 
 interface Props {
 
+}
+
+interface SongRequest {
+    artist: string;
+    song: string;
 }
 
 interface State {
@@ -12,6 +18,7 @@ interface State {
     song: string;
     isErrors: boolean;
     isSubmitted: boolean;
+    submittedData: SongRequest | undefined;
 }
 
 export class MusicPage extends React.Component<Props, State> {
@@ -22,7 +29,8 @@ export class MusicPage extends React.Component<Props, State> {
             artist: "",
             song: "",
             isErrors: false,
-            isSubmitted: false
+            isSubmitted: false,
+            submittedData: undefined,
         };
     }
 
@@ -37,6 +45,18 @@ export class MusicPage extends React.Component<Props, State> {
             >
                 <div className={"container__row"}>
                     <div className={"MusicPage__map column"}>
+
+                        {this.state.isErrors ? (
+                            <div className={"rsvp__errors"}>
+                                Uh oh, something went wrong, you may not have entered the required information or something might have happened on the backend please try again!
+                            </div>
+                        ): (undefined)}
+
+                        {this.state.submittedData ? (
+                            <div className={"rsvp__success"}>
+                                Your song {this.state.submittedData.song} by {this.state.submittedData.artist} was successfully requested! You can request another!
+                            </div>
+                        ): (undefined)}
 
                         <h2>Music Request</h2>
 
@@ -90,7 +110,14 @@ export class MusicPage extends React.Component<Props, State> {
             axiosInstance
                 .post(`/song-request`, dataForRequest).then(response => {
                 console.log("response", response.data);
-                this.setState({ isSubmitted: true });
+                this.setState({
+                    isErrors: false,
+                    isSubmitted: true,
+                    submittedData: {
+                        artist: response.data.song.artist,
+                        song: response.data.song.song
+                    }
+                });
             });
         } else {
             this.setState({ isErrors: true });
