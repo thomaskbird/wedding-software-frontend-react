@@ -3,6 +3,7 @@ import "./AdminGuestList.scss";
 
 import { axiosInstance } from "src/components/Root";
 import { User } from "src/types/interfaces";
+import { GuestMock } from "src/mocks/Guests";
 import { Containers } from "src/components/partials/structural/Containers";
 import { analyticsSend } from "src/components/Helpers";
 
@@ -24,15 +25,18 @@ export class AdminGuestList extends React.Component<Props, State> {
     }
 
     public componentDidMount(): void {
+        this.refreshGuestList();
+        analyticsSend("/admin/guest-list");
+    }
+
+    private refreshGuestList(): void {
         axiosInstance.get(`/guest-list`).then(response => {
             console.log("response", response.data);
             this.setState({
                 guests: response.data.guests,
             });
         });
-        analyticsSend("/admin/guest-list");
     }
-
     public render(): JSX.Element {
         return (
             <Containers>
@@ -48,7 +52,8 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <th className={"GuestList__item--column"}>Email:</th>
                                     <th className={"GuestList__item--column"}>Phone:</th>
                                     <th className={"GuestList__item--column"}>Is coming?</th>
-                                    <th className={"GuestList__item--column"}>Plus one?</th>
+                                    <th className={"GuestList__item--column"}>+1?</th>
+                                    <th className={"GuestList__item--column"}>+1 Name</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,8 +64,14 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <td className={"GuestList__item--column"}>{guest.city}/{guest.state}</td>
                                     <td className={"GuestList__item--column"}>{guest.email}</td>
                                     <td className={"GuestList__item--column"}>{guest.phone}</td>
-                                    <td className={"GuestList__item--column"}>{guest.rsvp ? guest.rsvp : "Hasn't responded"}</td>
-                                    <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one} - ${guest.plus_one_name}` : "Hasn't responded"}</td>
+                                    <td
+                                        className={"GuestList__item--column"}
+                                        onClick={() => this.toggleRsvpInfo(guest.id, "rsvp", guest.rsvp)}
+                                    >
+                                        {guest.rsvp ? guest.rsvp : "Hasn't responded"}
+                                    </td>
+                                    <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one}` : "Hasn't responded"}</td>
+                                    <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one_name}` : "Hasn't responded"}</td>
                                 </tr>
                             ))}
                             </tbody>
@@ -69,5 +80,33 @@ export class AdminGuestList extends React.Component<Props, State> {
                 </div>
             </Containers>
         )
+    }
+
+    private toggleRsvpInfo(
+        userId: number,
+        key: string,
+        currentVal: any
+    ): void {
+        let newVal: any;
+
+        if(currentVal === null) {
+            newVal = "yes";
+        } else if(currentVal === "yes") {
+            newVal = "no";
+        } else {
+            newVal = null;
+        }
+
+        const dataForRequest = {
+            userId: userId,
+            key: key,
+            val: newVal
+        };
+
+        axiosInstance
+            .post(`/admin-toggle-rsvp`, dataForRequest).then(response => {
+            console.log("response", response.data);
+            this.refreshGuestList();
+        });
     }
 }
