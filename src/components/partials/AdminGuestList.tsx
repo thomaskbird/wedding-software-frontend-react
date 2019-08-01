@@ -74,7 +74,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                                         className={"GuestList__item--column"}
                                         onClick={() => this.toggleRsvpInfo(guest.id, "plus_one", guest.plus_one)}
                                     >
-                                        {guest.rsvp !== null || guest.plus_one !== null ? `${guest.plus_one}` : "Hasn't responded"}
+                                        {guest.rsvp === "yes" && guest.plus_one !== null ? `${guest.plus_one}` : "Hasn't responded"}
                                     </td>
                                     <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one_name}` : "Hasn't responded"}</td>
                                 </tr>
