@@ -70,7 +70,12 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     >
                                         {guest.rsvp ? guest.rsvp : "Hasn't responded"}
                                     </td>
-                                    <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one}` : "Hasn't responded"}</td>
+                                    <td
+                                        className={"GuestList__item--column"}
+                                        onClick={() => this.toggleRsvpInfo(guest.id, "plus_one", guest.rsvp)}
+                                    >
+                                        {guest.rsvp ? `${guest.plus_one}` : "Hasn't responded"}
+                                    </td>
                                     <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one_name}` : "Hasn't responded"}</td>
                                 </tr>
                             ))}
