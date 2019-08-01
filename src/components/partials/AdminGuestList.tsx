@@ -98,7 +98,7 @@ export class AdminGuestList extends React.Component<Props, State> {
             newVal = "yes";
         } else if(currentVal === "yes") {
             newVal = "no";
-        } else {
+        } else if(currentVal === "no") {
             newVal = null;
         }
 
