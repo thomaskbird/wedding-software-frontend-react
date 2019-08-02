@@ -77,6 +77,8 @@ export class AdminGuestList extends React.Component<Props, State> {
                         <p><b>{this.state.coming}</b> people are coming, <b>{this.state.notComing}</b> are not coming and <b>{this.state.notResponded}</b> haven't responded</p>
                     ): (undefined)}
 
+                    <p>Double click on plus one's name to edit text</p>
+
                     <div className={"GuestList"}>
                         <table>
                             <thead>
