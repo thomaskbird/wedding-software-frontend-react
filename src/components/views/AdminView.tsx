@@ -9,6 +9,7 @@ import { MusicPage } from "src/components/partials/MusicPage";
 import { ContactPage } from "src/components/partials/ContactPage";
 import { AdminGuestList } from "src/components/partials/AdminGuestList";
 import { Containers } from "src/components/partials/structural/Containers";
+import { Footer } from "src/components/partials/structural/Footer";
 
 interface Props extends RouteComponentProps {
 
@@ -52,19 +53,7 @@ export class AdminView extends React.Component<Props, State> {
                     </>
                 </Switch>
 
-                <Containers
-                    extraClasses={"container__footer"}
-                >
-                    <div className={"column"}>
-                        &copy; 2019 All Rights Reserved
-                    </div>
-                    <div className={"column"}>
-
-                    </div>
-                    <div className={"column"}>
-
-                    </div>
-                </Containers>
+                <Footer />
             </div>
         );
     }
