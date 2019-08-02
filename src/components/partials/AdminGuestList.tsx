@@ -72,7 +72,9 @@ export class AdminGuestList extends React.Component<Props, State> {
                 <div className={"GuestList__wrapper"}>
                     <h2>Guest List</h2>
 
-                    <p><b>{this.state.coming}</b> people are coming, <b>{this.state.notComing}</b> are not coming and <b>{this.state.notResponded}</b> haven't responded</p>
+                    {this.state.guests.length ? (
+                        <p><b>{this.state.coming}</b> people are coming, <b>{this.state.notComing}</b> are not coming and <b>{this.state.notResponded}</b> haven't responded</p>
+                    ): (undefined)}
 
                     <div className={"GuestList"}>
                         <table>
@@ -89,6 +91,11 @@ export class AdminGuestList extends React.Component<Props, State> {
                                 </tr>
                             </thead>
                             <tbody>
+                            {!this.state.guests.length ? (
+                                <tr className={"GuestList__item"}>
+                                    <td colSpan={8}>No records</td>
+                                </tr>
+                            ): (undefined)}
                             {this.state.guests.map((guest, i) => (
                                 <tr className={"GuestList__item"} key={i}>
                                     <td className={"GuestList__item--column"}>{i+1}</td>

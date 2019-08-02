@@ -1,15 +1,10 @@
 import * as React from "react";
 import { Route, RouteComponentProps, Switch } from "react-router";
 import { NavigationWrapper } from "src/components/partials/structural/NavigationWrapper";
-import { VenuePage } from "src/components/partials/VenuePage";
-import { RsvpPage } from "src/components/partials/RsvpPage";
-import { BridalPartyPage } from "src/components/partials/BridalPartyPage";
-import { AccommodationsPage } from "src/components/partials/AccommodationsPage";
-import { MusicPage } from "src/components/partials/MusicPage";
-import { ContactPage } from "src/components/partials/ContactPage";
 import { AdminGuestList } from "src/components/partials/AdminGuestList";
-import { Containers } from "src/components/partials/structural/Containers";
 import { Footer } from "src/components/partials/structural/Footer";
+import { Containers } from "src/components/partials/structural/Containers";
+import { paz } from "src/mocks/a";
 
 interface Props extends RouteComponentProps {
 
@@ -18,6 +13,9 @@ interface Props extends RouteComponentProps {
 interface State {
     showNav: boolean;
     currentPath: string | undefined;
+    showAdmin: boolean;
+    showErrors: boolean;
+    pass: string;
 }
 
 export class AdminView extends React.Component<Props, State> {
@@ -26,7 +24,10 @@ export class AdminView extends React.Component<Props, State> {
 
         this.state = {
             showNav: false,
-            currentPath: undefined
+            currentPath: undefined,
+            showAdmin: false,
+            showErrors: false,
+            pass: "",
         };
     }
 
@@ -44,17 +45,55 @@ export class AdminView extends React.Component<Props, State> {
                     isPublic={false}
                 />
 
-                <Switch>
-                    <>
-                        <Route
-                            path={"/admin/guest-list"}
-                            component={AdminGuestList}
-                        />
-                    </>
-                </Switch>
+                {this.state.showAdmin ? (
+                    <Switch>
+                        <>
+                            <Route
+                                path={"/admin/guest-list"}
+                                component={AdminGuestList}
+                            />
+                        </>
+                    </Switch>
+                ) : (
+                    <Containers>
+                        <form onSubmit={(e) => this.submit(e)}>
+                            {this.state.showErrors ? (
+                                <p style={{ color: "#ca6666" }}>Wrong password</p>
+                            ) : (undefined)}
+                            <div className={"container__row"}>
+                                <div className={"FormGroup"}>
+                                    <label className={"FormGroup__label"} htmlFor={"pass"}>Password:</label>
+                                    <input
+                                        className={"FormGroup__input"}
+                                        type={"password"}
+                                        name={"pass"}
+                                        id={"pass"}
+                                        value={this.state.pass}
+                                        placeholder={"Enter password..."}
+                                        onChange={(e) => this.setState({ pass: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+
+                            <button type={"submit"} className={"btn btn__primary"}>Submit</button>
+                        </form>
+                    </Containers>
+                )}
 
                 <Footer />
             </div>
         );
+    }
+
+    private submit(e: any): void {
+        if(this.state.pass === paz) {
+            this.setState({
+                showAdmin: true,
+                showErrors: false
+            });
+        } else {
+            this.setState({ showErrors: true });
+        }
+        e.preventDefault();
     }
 }
