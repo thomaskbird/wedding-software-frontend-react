@@ -141,16 +141,21 @@ export class AdminGuestList extends React.Component<Props, State> {
         currentVal: any
     ): void {
         let newVal: any;
-        switch(currentVal) {
-            case "yes":
-                newVal = "no";
-            break;
-            case "no":
-                newVal = null;
-            break;
-            default:
-                newVal = "yes";
-            break;
+
+        if(key === "plus_one_name") {
+            newVal = currentVal;
+        } else {
+            switch(currentVal) {
+                case "yes":
+                    newVal = "no";
+                    break;
+                case "no":
+                    newVal = null;
+                    break;
+                default:
+                    newVal = "yes";
+                    break;
+            }
         }
 
         const dataForRequest = {

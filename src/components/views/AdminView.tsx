@@ -25,7 +25,7 @@ export class AdminView extends React.Component<Props, State> {
         this.state = {
             showNav: false,
             currentPath: undefined,
-            showAdmin: true,
+            showAdmin: false,
             showErrors: false,
             pass: "",
         };
