@@ -7,6 +7,7 @@ import { User } from "src/types/interfaces";
 import { GuestMock } from "src/mocks/Guests";
 import { Containers } from "src/components/partials/structural/Containers";
 import { analyticsSend } from "src/components/Helpers";
+import { TextInputToggler } from "src/components/partials/TextInputToggler";
 
 interface Props {
 
@@ -115,7 +116,15 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     >
                                         {guest.rsvp === "yes" && guest.plus_one !== null ? `${guest.plus_one}` : "Hasn't responded"}
                                     </td>
-                                    <td className={"GuestList__item--column"}>{guest.rsvp ? `${guest.plus_one_name}` : "Hasn't responded"}</td>
+                                    <td className={"GuestList__item--column"}>
+                                        <TextInputToggler
+                                            val={guest.plus_one_name}
+                                            identifier={"plus_one_name"}
+                                            onSubmit={(val) => {
+                                                this.toggleRsvpInfo(guest.id, "plus_one_name", val);
+                                            }}
+                                        />
+                                    </td>
                                 </tr>
                             ))}
                             </tbody>
@@ -154,6 +163,7 @@ export class AdminGuestList extends React.Component<Props, State> {
             .post(`/admin-toggle-rsvp`, dataForRequest).then(response => {
             console.log("response", response.data);
             this.refreshGuestList();
-        });
+        })
+            .catch(error => console.log("Errors: ", error));
     }
 }
