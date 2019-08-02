@@ -1,4 +1,5 @@
 import * as React from "react";
+import ReactTouchEvents from "react-touch-events";
 import "./TextInputToggler.scss";
 
 interface Props {
@@ -37,7 +38,16 @@ export class TextInputToggler extends React.Component<Props, State> {
                 />
             </div>
         ) : (
-            <div className={"FormGroup__display"} onDoubleClick={() => this.setState({ isEditing: !this.state.isEditing})}>{this.props.val}</div>
+            <ReactTouchEvents
+                onTap={() => this.setState({ isEditing: !this.state.isEditing})}
+            >
+                <div
+                    className={"FormGroup__display"}
+                    onDoubleClick={() => this.setState({ isEditing: !this.state.isEditing})}
+                >
+                    {this.props.val}
+                </div>
+            </ReactTouchEvents>
         );
     }
 
