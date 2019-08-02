@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as _ from "lodash";
 import "./AdminGuestList.scss";
 
 import { axiosInstance } from "src/components/Root";
@@ -13,6 +14,9 @@ interface Props {
 
 interface State {
     guests: User[];
+    coming: number | undefined;
+    notComing: number | undefined;
+    notResponded: number | undefined;
 }
 
 export class AdminGuestList extends React.Component<Props, State> {
@@ -20,7 +24,10 @@ export class AdminGuestList extends React.Component<Props, State> {
         super(props, context);
 
         this.state = {
-            guests: []
+            guests: [],
+            coming: undefined,
+            notComing: undefined,
+            notResponded: undefined,
         };
     }
 
@@ -32,8 +39,30 @@ export class AdminGuestList extends React.Component<Props, State> {
     private refreshGuestList(): void {
         axiosInstance.get(`/guest-list`).then(response => {
             console.log("response", response.data);
+
+            const coming = _.filter(GuestMock, (user) => {
+                return user.rsvp === "yes";
+            }).length;
+
+            const notComing = _.filter(GuestMock, (user) => {
+                return user.rsvp === "no";
+            }).length;
+
+            const notResponded = _.filter(GuestMock, (user) => {
+                return user.rsvp === null;
+            }).length;
+
             this.setState({
                 guests: response.data.guests,
+                coming: _.filter(response.data.guests, (user) => {
+                    return user.rsvp === "yes";
+                }).length,
+                notComing: _.filter(response.data.guests, (user) => {
+                    return user.rsvp === "no";
+                }).length,
+                notResponded: _.filter(response.data.guests, (user) => {
+                    return user.rsvp === null;
+                }).length
             });
         });
     }
@@ -42,6 +71,9 @@ export class AdminGuestList extends React.Component<Props, State> {
             <Containers>
                 <div className={"GuestList__wrapper"}>
                     <h2>Guest List</h2>
+
+                    <p><b>{this.state.coming}</b> people are coming, <b>{this.state.notComing}</b> are not coming and <b>{this.state.notResponded}</b> haven't responded</p>
+
                     <div className={"GuestList"}>
                         <table>
                             <thead>
