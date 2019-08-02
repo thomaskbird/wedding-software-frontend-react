@@ -40,6 +40,7 @@ export class TextInputToggler extends React.Component<Props, State> {
             <div
                 className={"FormGroup__display"}
                 onDoubleClick={() => this.setState({ isEditing: !this.state.isEditing})}
+                onTouchStart={() => this.setState({ isEditing: !this.state.isEditing})}
             >
                 {this.props.val}
             </div>
