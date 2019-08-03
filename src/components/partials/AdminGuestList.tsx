@@ -89,6 +89,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <th className={"GuestList__item--column"}>Email:</th>
                                     <th className={"GuestList__item--column"}>Phone:</th>
                                     <th className={"GuestList__item--column"}>Is coming?</th>
+                                    <th className={"GuestList__item--column"}>Rsvp Source</th>
                                     <th className={"GuestList__item--column"}>+1?</th>
                                     <th className={"GuestList__item--column"}>+1 Name</th>
                                 </tr>
@@ -112,6 +113,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     >
                                         {guest.rsvp ? guest.rsvp : "Hasn't responded"}
                                     </td>
+                                    <td className={"GuestList__item--column"}>{guest.rsvp_source}</td>
                                     <td
                                         className={"GuestList__item--column"}
                                         onClick={() => this.toggleRsvpInfo(guest.id, "plus_one", guest.plus_one)}

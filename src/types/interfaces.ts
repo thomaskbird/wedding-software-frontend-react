@@ -29,6 +29,7 @@ export interface User extends Timestamps {
     bridal_party_order: number;
     plus_one: YesNo;
     plus_one_name: string;
+    rsvp_source: string;
     rsvp: YesNo;
     rsvp_at: string;
     created_at: string;
