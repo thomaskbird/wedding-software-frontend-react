@@ -11,6 +11,7 @@ import {
 import { HomeView } from "src/components/views/HomeView";
 import { PageView } from "src/components/views/PageView";
 import { AdminView } from "src/components/views/AdminView";
+import { scrollToTop } from "src/components/Helpers";
 
 export const axiosInstance = axios.create({
     baseURL: `http://api.graceandtom.com/api`
@@ -46,6 +47,9 @@ export class Root extends React.Component<Props, State> {
         super(props, context);
 
         this.state = {};
+    }
+
+    public componentDidMount(): void {
         this.setPageTitle();
     }
 
@@ -87,6 +91,8 @@ export class Root extends React.Component<Props, State> {
         }
 
         document.title = `Grace & Tom | ${title}`;
+
+        scrollToTop();
     }
 
     /**

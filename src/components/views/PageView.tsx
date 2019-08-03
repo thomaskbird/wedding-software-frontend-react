@@ -56,7 +56,12 @@ export class PageView extends React.Component<Props, State> {
                 <NavigationWrapper
                     isPublic={true}
                     showNav={this.state.showNav}
-                    onToggleNavigation={() => this.setState({ showNav: !this.state.showNav })}
+                    onToggleNavigation={() => {
+                        window.scrollTo(0, 0);
+                        this.setState({
+                            showNav: !this.state.showNav
+                        });
+                    }}
                 />
 
                 <Switch>
