@@ -113,7 +113,12 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     >
                                         {guest.rsvp ? guest.rsvp : "Hasn't responded"}
                                     </td>
-                                    <td className={"GuestList__item--column"}>{guest.rsvp_source}</td>
+                                    <td
+                                        className={"GuestList__item--column"}
+                                        onClick={() => this.toggleRsvpInfo(guest.id, "rsvp_source", guest.rsvp_source)}
+                                    >
+                                        {guest.rsvp_source}
+                                    </td>
                                     <td
                                         className={"GuestList__item--column"}
                                         onClick={() => this.toggleRsvpInfo(guest.id, "plus_one", guest.plus_one)}
@@ -148,6 +153,18 @@ export class AdminGuestList extends React.Component<Props, State> {
 
         if(key === "plus_one_name") {
             newVal = currentVal;
+        } else if(key === "rsvp_source") {
+            switch(currentVal) {
+                case "website":
+                    newVal = "personal";
+                break;
+                case "personal":
+                    newVal = "website";
+                break;
+                default:
+                    newVal = null;
+                break;
+            }
         } else {
             switch(currentVal) {
                 case "yes":
