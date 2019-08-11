@@ -35,3 +35,11 @@ export interface User extends Timestamps {
     created_at: string;
     updated_at: string;
 }
+
+export interface Song extends Timestamps {
+    id: number;
+    accound_id: number;
+    song: string;
+    artist: string;
+    approved_at: string;
+}

@@ -5,6 +5,7 @@ import { AdminGuestList } from "src/components/partials/AdminGuestList";
 import { Footer } from "src/components/partials/structural/Footer";
 import { Containers } from "src/components/partials/structural/Containers";
 import { paz } from "src/mocks/a";
+import { AdminMusicRequested } from "src/components/partials/AdminMusicRequested";
 
 interface Props extends RouteComponentProps {
 
@@ -51,6 +52,10 @@ export class AdminView extends React.Component<Props, State> {
                             <Route
                                 path={"/admin/guest-list"}
                                 component={AdminGuestList}
+                            />
+                            <Route
+                                path={"/admin/music-requested"}
+                                component={AdminMusicRequested}
                             />
                         </>
                     </Switch>
