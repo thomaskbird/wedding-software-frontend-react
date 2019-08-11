@@ -41,5 +41,6 @@ export interface Song extends Timestamps {
     account_id: number;
     song: string;
     artist: string;
-    approved_at: string;
+    approved: YesNo | null;
+    approved_at: string | null;
 }

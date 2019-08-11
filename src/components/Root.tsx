@@ -88,6 +88,12 @@ export class Root extends React.Component<Props, State> {
             case "/p/contact":
                 title = "Contact";
             break;
+            case "/admin/music-requested":
+                title = "Requested music";
+            break;
+            case "/admin/guest-list":
+                title = "Guest List";
+            break;
         }
 
         document.title = `Grace & Tom | ${title}`;

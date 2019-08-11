@@ -25,6 +25,10 @@ export class AdminMusicRequested extends React.Component<Props, State> {
 
     public componentDidMount(): void {
         analyticsSend("/admin/music-requested");
+        this.refreshSongs();
+    }
+
+    private refreshSongs(): void {
         axiosInstance.get(`/music-requested`).then(response => {
             this.setState({
                 songs: response.data.data.songs
@@ -56,7 +60,14 @@ export class AdminMusicRequested extends React.Component<Props, State> {
                                 <td className={"GuestList__item--column"}>{i+1}</td>
                                 <td className={"GuestList__item--column"}>{song.artist}</td>
                                 <td className={"GuestList__item--column"}>{song.song}</td>
-                                <td className={"GuestList__item--column"}>{song.id}</td>
+                                <td
+                                    className={"GuestList__item--column"}
+                                    onClick={() => {
+                                        this.toggleApproval(song);
+                                    }}
+                                >
+                                    {song.id}
+                                </td>
                             </tr>
                         ))}
                         </tbody>
@@ -64,5 +75,21 @@ export class AdminMusicRequested extends React.Component<Props, State> {
                 </div>
             </Containers>
         );
+    }
+
+    private toggleApproval(song: Song): void {
+        let val: string | null = null;
+        switch(song.approved) {
+            case null:
+                val = "yes";
+            break;
+            case "yes":
+                val = "no";
+            break;
+        }
+        axiosInstance.get(`/toggle-approval/${song.id}/${val}`).then(response => {
+            console.log("response", response);
+            this.refreshSongs();
+        });
     }
 }
