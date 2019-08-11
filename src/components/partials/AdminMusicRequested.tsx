@@ -26,10 +26,8 @@ export class AdminMusicRequested extends React.Component<Props, State> {
     public componentDidMount(): void {
         analyticsSend("/admin/music-requested");
         axiosInstance.get(`/music-requested`).then(response => {
-            console.log("response", response.data, response.data.songs);
-
             this.setState({
-                songs: response.data.songs
+                songs: response.data.data.songs
             });
         });
     }
