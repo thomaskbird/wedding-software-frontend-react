@@ -62,11 +62,10 @@ export class AdminMusicRequested extends React.Component<Props, State> {
                                 <td className={"GuestList__item--column"}>{song.song}</td>
                                 <td
                                     className={"GuestList__item--column"}
-                                    onClick={() => {
-                                        this.toggleApproval(song);
-                                    }}
                                 >
-                                    {song.id}
+                                    <span onClick={() => this.toggleApproval(song)}>
+                                        {song.approved}
+                                    </span>
                                 </td>
                             </tr>
                         ))}
