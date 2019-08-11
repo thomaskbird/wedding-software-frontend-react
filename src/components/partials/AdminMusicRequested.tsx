@@ -47,12 +47,12 @@ export class AdminMusicRequested extends React.Component<Props, State> {
                         </tr>
                         </thead>
                         <tbody>
-                        {!this.state.songs ? (
+                        {!this.state.songs.length ? (
                             <tr className={"GuestList__item"}>
                                 <td colSpan={3}>No records</td>
                             </tr>
                         ): (undefined)}
-                        {this.state.songs && this.state.songs.map((song, i) => (
+                        {this.state.songs.map((song, i) => (
                             <tr className={"GuestList__item"} key={i}>
                                 <td className={"GuestList__item--column"}>{i+1}</td>
                                 <td className={"GuestList__item--column"}>{song.artist}</td>
