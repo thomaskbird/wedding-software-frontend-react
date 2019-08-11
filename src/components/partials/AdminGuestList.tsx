@@ -96,7 +96,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                     ): (undefined)}
 
                     {this.state.guests.length ? (
-                        <p>{this.state.rsvpTotal} guests have rsvp, {Math.round((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100)}% rsvp personally and {Math.round((this.state.rsvpTotalWebsite! / this.state.rsvpTotal!) * 100)}% rsvp from the website.</p>
+                        <p><b>{this.state.rsvpTotal}</b> guests have rsvp, <b>{Math.round((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100)}%</b> rsvp personally and <b>{Math.round((this.state.rsvpTotalWebsite! / this.state.rsvpTotal!) * 100)}%</b> rsvp from the website.</p>
                     ): (undefined)}
 
                     <p>Double click on plus one's name to edit text</p>
