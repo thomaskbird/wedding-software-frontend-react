@@ -101,21 +101,19 @@ export class Root extends React.Component<Props, State> {
     public render(): JSX.Element {
         return (
             <Switch>
-                <>
-                    <Route
-                        exact={true}
-                        path={"/"}
-                        component={HomeView}
-                    />
-                    <Route
-                        path={"/p/:slug"}
-                        component={PageView}
-                    />
-                    <Route
-                        path={"/admin/:slug"}
-                        component={AdminView}
-                    />
-                </>
+                <Route
+                    exact={true}
+                    path={"/"}
+                    component={HomeView}
+                />
+                <Route
+                    path={"/p/:slug"}
+                    component={PageView}
+                />
+                <Route
+                    path={"/admin/:slug"}
+                    component={AdminView}
+                />
             </Switch>
         );
     }

@@ -18,6 +18,10 @@ interface State {
     coming: number | undefined;
     notComing: number | undefined;
     notResponded: number | undefined;
+    totalGuests: number | undefined;
+    rsvpTotal: number | undefined;
+    rsvpTotalPersonal: number | undefined;
+    rsvpTotalWebsite: number | undefined;
 }
 
 export class AdminGuestList extends React.Component<Props, State> {
@@ -29,6 +33,10 @@ export class AdminGuestList extends React.Component<Props, State> {
             coming: undefined,
             notComing: undefined,
             notResponded: undefined,
+            totalGuests: undefined,
+            rsvpTotal: undefined,
+            rsvpTotalPersonal: undefined,
+            rsvpTotalWebsite: undefined,
         };
     }
 
@@ -55,6 +63,16 @@ export class AdminGuestList extends React.Component<Props, State> {
 
             this.setState({
                 guests: response.data.guests,
+                totalGuests: response.data.guests.length,
+                rsvpTotal: _.filter(response.data.guests, (user) => {
+                    return user.rsvp !== null;
+                }).length,
+                rsvpTotalPersonal: _.filter(response.data.guests, (user) => {
+                    return user.rsvp_source === "personal";
+                }).length,
+                rsvpTotalWebsite: _.filter(response.data.guests, (user) => {
+                    return user.rsvp_source === "website";
+                }).length,
                 coming: _.filter(response.data.guests, (user) => {
                     return user.rsvp === "yes";
                 }).length,
@@ -75,6 +93,10 @@ export class AdminGuestList extends React.Component<Props, State> {
 
                     {this.state.guests.length ? (
                         <p><b>{this.state.coming}</b> people are coming, <b>{this.state.notComing}</b> are not coming and <b>{this.state.notResponded}</b> haven't responded</p>
+                    ): (undefined)}
+
+                    {this.state.guests.length ? (
+                        <p>{this.state.rsvpTotal} guests have rsvp, {((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100)}% rsvp personally and {((this.state.rsvpTotalWebsite! / this.state.rsvpTotal!) * 100)}% rsvp from the website.</p>
                     ): (undefined)}
 
                     <p>Double click on plus one's name to edit text</p>
