@@ -41,6 +41,7 @@ export class AdminMusicRequested extends React.Component<Props, State> {
                     <table>
                         <thead>
                         <tr className={"GuestList__item GuestList__item--header"}>
+                            <th className={"GuestList__item--column"}>ID:</th>
                             <th className={"GuestList__item--column"}>Artist:</th>
                             <th className={"GuestList__item--column"}>Song:</th>
                             <th className={"GuestList__item--column"}>Actions</th>

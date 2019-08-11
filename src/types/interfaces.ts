@@ -38,7 +38,7 @@ export interface User extends Timestamps {
 
 export interface Song extends Timestamps {
     id: number;
-    accound_id: number;
+    account_id: number;
     song: string;
     artist: string;
     approved_at: string;
