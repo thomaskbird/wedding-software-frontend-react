@@ -47,7 +47,9 @@ export class AdminGuestList extends React.Component<Props, State> {
 
     private refreshGuestList(): void {
         axiosInstance.get(`/guest-list`).then(response => {
-            console.log("response", response.data);
+            console.log("response", response.data, _.filter(response.data.guests, (user) => {
+                return user.rsvp_source === "website";
+            }).length);
 
             this.setState({
                 guests: response.data.guests,
