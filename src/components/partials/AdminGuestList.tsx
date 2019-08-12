@@ -61,6 +61,9 @@ export class AdminGuestList extends React.Component<Props, State> {
                     return user.rsvp_source === "personal";
                 }).length,
                 rsvpTotalWebsite: _.filter(response.data.guests, (user) => {
+                    if(user.rsvp_source === "website") {
+                        console.log("user", user);
+                    }
                     return user.rsvp_source === "website";
                 }).length,
                 coming: _.filter(response.data.guests, (user) => {
