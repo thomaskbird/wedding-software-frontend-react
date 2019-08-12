@@ -49,18 +49,6 @@ export class AdminGuestList extends React.Component<Props, State> {
         axiosInstance.get(`/guest-list`).then(response => {
             console.log("response", response.data);
 
-            const coming = _.filter(GuestMock, (user) => {
-                return user.rsvp === "yes";
-            }).length;
-
-            const notComing = _.filter(GuestMock, (user) => {
-                return user.rsvp === "no";
-            }).length;
-
-            const notResponded = _.filter(GuestMock, (user) => {
-                return user.rsvp === null;
-            }).length;
-
             this.setState({
                 guests: response.data.guests,
                 totalGuests: response.data.guests.length,
@@ -96,7 +84,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                     ): (undefined)}
 
                     {this.state.guests.length ? (
-                        <p><b>{this.state.rsvpTotal}</b> guests have rsvp, <b>{Math.round((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100)}%</b> rsvp personally and <b>{Math.round((this.state.rsvpTotalWebsite! / this.state.rsvpTotal!) * 100)}%</b> rsvp from the website.</p>
+                        <p><b>{this.state.rsvpTotal}</b> guests have rsvp, <b>{this.percent(this.state.rsvpTotalPersonal!, this.state.rsvpTotal!)}%</b> rsvp personally and <b>{this.percent(this.state.rsvpTotalWebsite!, this.state.rsvpTotal!)}%</b> rsvp from the website.</p>
                     ): (undefined)}
 
                     <p>Double click on plus one's name to edit text</p>
@@ -166,6 +154,10 @@ export class AdminGuestList extends React.Component<Props, State> {
         )
     }
 
+    private percent(subtotal: number, total: number): number {
+        return Math.round(Math.abs((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100));
+    }
+
     private toggleRsvpInfo(
         userId: number,
         key: string,
@@ -212,6 +204,6 @@ export class AdminGuestList extends React.Component<Props, State> {
             console.log("response", response.data);
             this.refreshGuestList();
         })
-            .catch(error => console.log("Errors: ", error));
+        .catch(error => console.log("Errors: ", error));
     }
 }
