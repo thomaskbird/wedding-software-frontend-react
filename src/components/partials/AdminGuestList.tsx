@@ -154,7 +154,7 @@ export class AdminGuestList extends React.Component<Props, State> {
         )
     }
 
-    private percent(subtotal: number, total: number): number {
+    private percent(subtotal: number, total: number): number {console.log("percent", subtotal, total);
         return Math.round(Math.abs((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100));
     }
 
