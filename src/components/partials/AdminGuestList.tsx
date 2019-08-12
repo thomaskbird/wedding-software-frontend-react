@@ -47,9 +47,7 @@ export class AdminGuestList extends React.Component<Props, State> {
 
     private refreshGuestList(): void {
         axiosInstance.get(`/guest-list`).then(response => {
-            console.log("response", response.data, _.filter(response.data.guests, (user) => {
-                return user.rsvp_source === "website";
-            }).length);
+            console.log("response", response.data);
 
             this.setState({
                 guests: response.data.guests,
@@ -60,7 +58,9 @@ export class AdminGuestList extends React.Component<Props, State> {
                 rsvpTotalPersonal: _.filter(response.data.guests, (user) => {
                     return user.rsvp_source === "personal";
                 }).length,
-                rsvpTotalWebsite: response.data.guests.filter((user: any) => user.rsvp_source === "website").length,
+                rsvpTotalWebsite: _.filter(response.data.guests, (user) => {
+                    return user.rsvp_source === "website";
+                }).length,
                 coming: _.filter(response.data.guests, (user) => {
                     return user.rsvp === "yes";
                 }).length,
@@ -154,8 +154,8 @@ export class AdminGuestList extends React.Component<Props, State> {
         )
     }
 
-    private percent(subtotal: number, total: number): number {console.log("percent", subtotal, total);
-        return Math.round(Math.abs((this.state.rsvpTotalPersonal! / this.state.rsvpTotal!) * 100));
+    private percent(subtotal: number, total: number): number {
+        return Math.round(Math.abs((subtotal / total) * 100));
     }
 
     private toggleRsvpInfo(
