@@ -51,7 +51,7 @@ export class PlacecardView extends React.Component<Props, State> {
                             <p>{user.first_name} {user.last_name}</p>
 
                             <h2>
-                                {user.table_number !== 0 ? "Table" : ""}
+                                {user.table_number !== 0 ? "Table " : ""}
                                 {this.tables[user.table_number]}
                             </h2>
                         </div>
@@ -59,7 +59,7 @@ export class PlacecardView extends React.Component<Props, State> {
                             <p>{user.first_name} {user.last_name}</p>
 
                             <h2>
-                                {user.table_number !== 0 ? "Table" : ""}
+                                {user.table_number !== 0 ? "Table " : ""}
                                 {this.tables[user.table_number]}
                             </h2>
                         </div>
