@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+#root {
+    height: auto !important;
+}
+
 .wrapper {
     width: 816px;
     display: flex;
