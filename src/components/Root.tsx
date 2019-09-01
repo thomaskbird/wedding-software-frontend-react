@@ -117,7 +117,7 @@ export class Root extends React.Component<Props, State> {
                     component={HomeView}
                 />
                 <Route
-                    path={"/admin/placecards"}
+                    path={"/print/placecards"}
                     component={PlacecardView}
                 />
                 <Route
