@@ -12,6 +12,7 @@ import { HomeView } from "src/components/views/HomeView";
 import { PageView } from "src/components/views/PageView";
 import { AdminView } from "src/components/views/AdminView";
 import { scrollToTop } from "src/components/Helpers";
+import { PlacecardView } from "src/components/views/PlacecardView";
 
 export const axiosInstance = axios.create({
     baseURL: `http://api.graceandtom.com/api`
@@ -94,6 +95,9 @@ export class Root extends React.Component<Props, State> {
             case "/admin/guest-list":
                 title = "Guest List";
             break;
+            case "/admin/placecards":
+                title = "Placecard View";
+            break;
         }
 
         document.title = `Grace & Tom | ${title}`;
@@ -111,6 +115,10 @@ export class Root extends React.Component<Props, State> {
                     exact={true}
                     path={"/"}
                     component={HomeView}
+                />
+                <Route
+                    path={"/admin/placecards"}
+                    component={PlacecardView}
                 />
                 <Route
                     path={"/p/:slug"}

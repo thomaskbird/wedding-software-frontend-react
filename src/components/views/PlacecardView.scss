@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+}
+
+.wrapper {
+    width: 816px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.placecard {
+    flex: 1 0 50%;
+    text-align: center;
+    margin-bottom: 38px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #aaa;
+
+    &:nth-child(odd) {
+        border-right: 1px solid #aaa;
+    }
+
+    &:nth-child(even) {
+
+    }
+
+    &__sign {
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+
+        &:nth-child(odd) {
+            transform: rotate(180deg);
+            border-top: 1px solid #aaa;
+        }
+
+        &:nth-child(even) {
+
+        }
+
+        p {
+            font-family: arial, helvetica, verdana;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-top: 6rem;
+            margin-bottom: 0rem;
+        }
+
+        h2 {
+            margin-top: .4rem;
+            font-family: arial, helvetica, verdana;
+            font-weight: 100;
+            color: #aaa;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 10px;
+        }
+    }
+}
