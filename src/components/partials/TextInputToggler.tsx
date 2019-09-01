@@ -3,8 +3,8 @@ import "./TextInputToggler.scss";
 
 interface Props {
     identifier: string;
-    val?: string | null;
-    onSubmit(val: string): void;
+    val?: any;
+    onSubmit(val: any): void;
 }
 
 interface State {

@@ -98,6 +98,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <th className={"GuestList__item--column"}>City/State:</th>
                                     <th className={"GuestList__item--column"}>Email:</th>
                                     <th className={"GuestList__item--column"}>Phone:</th>
+                                    <th className={"GuestList__item--column"}>Table:</th>
                                     <th className={"GuestList__item--column"}>Is coming?</th>
                                     <th className={"GuestList__item--column"}>Rsvp Source</th>
                                     <th className={"GuestList__item--column"}>+1?</th>
@@ -117,6 +118,15 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <td className={"GuestList__item--column"}>{guest.city}/{guest.state}</td>
                                     <td className={"GuestList__item--column"}>{guest.email}</td>
                                     <td className={"GuestList__item--column"}>{guest.phone}</td>
+                                    <td className={"GuestList__item--column"}>
+                                        <TextInputToggler
+                                            val={guest.table_number}
+                                            identifier={"table_number"}
+                                            onSubmit={(val) => {
+                                                this.toggleRsvpInfo(guest.id, "table_number", val);
+                                            }}
+                                        />
+                                    </td>
                                     <td
                                         className={"GuestList__item--column"}
                                         onClick={() => this.toggleRsvpInfo(guest.id, "rsvp", guest.rsvp)}
@@ -165,7 +175,7 @@ export class AdminGuestList extends React.Component<Props, State> {
     ): void {
         let newVal: any;
 
-        if(key === "plus_one_name") {
+        if(key === "plus_one_name" || key === "table_number") {
             newVal = currentVal;
         } else if(key === "rsvp_source") {
             switch(currentVal) {

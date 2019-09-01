@@ -26,6 +26,7 @@ export interface User extends Timestamps {
     phone: string;
     email: string;
     profile_image: string;
+    table_number: number;
     bridal_party_order: number;
     plus_one: YesNo;
     plus_one_name: string;
