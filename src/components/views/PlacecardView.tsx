@@ -44,7 +44,7 @@ export class PlacecardView extends React.Component<Props, State> {
 
     public render(): JSX.Element {
         return (
-            <div className="wrapper">
+            <div className="wrapper-print">
                 {this.state.guests.length && this.state.guests.map((user) => (
                     <div className="placecard">
                         <div className="placecard__sign">
