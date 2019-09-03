@@ -31,3 +31,11 @@
         }
     }
 }
+
+.filters {
+    display: flex;
+
+    &__column {
+        flex: 1;
+    }
+}
