@@ -15,6 +15,7 @@ interface Props {
 
 interface State {
     guests: User[];
+    filterVal: any;
     filteredGuests: User[];
     coming: number | undefined;
     notComing: number | undefined;
@@ -32,6 +33,7 @@ export class AdminGuestList extends React.Component<Props, State> {
         this.state = {
             guests: [],
             filteredGuests: [],
+            filterVal: "all",
             coming: undefined,
             notComing: undefined,
             notResponded: undefined,
@@ -98,25 +100,25 @@ export class AdminGuestList extends React.Component<Props, State> {
                             Filters
                         </div>
                         <div
-                            className="filters__column"
+                            className={`filters__column ${this.state.filterVal === "all" ? "active" : ""}`}
                             onClick={() => this.filterData("default", "all")}
                         >
                             All
                         </div>
                         <div
-                            className="filters__column"
+                            className={`filters__column ${this.state.filterVal === "yes" ? "active" : ""}`}
                             onClick={() => this.filterData("rsvp", "yes")}
                         >
                             Attending
                         </div>
                         <div
-                            className={"filters__column"}
+                            className={`filters__column ${this.state.filterVal === "no" ? "active" : ""}`}
                             onClick={() => this.filterData("rsvp", "no")}
                         >
                             Not attending
                         </div>
                         <div
-                            className="filters__column"
+                            className={`filters__column ${this.state.filterVal === null ? "active" : ""}`}
                             onClick={() => this.filterData("rsvp", null)}
                         >
                             Hasn't Responded
@@ -210,6 +212,7 @@ export class AdminGuestList extends React.Component<Props, State> {
         }
 
         this.setState({
+            filterVal: val,
             filteredGuests: filteredData,
         });
     }
