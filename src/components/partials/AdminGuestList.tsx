@@ -102,11 +102,9 @@ export class AdminGuestList extends React.Component<Props, State> {
                     ): (undefined)}
 
                     {this.state.guests.length ? (
-                        <span><b>{this.state.rsvpTotal}</b> guests have rsvp, <b>{this.percent(this.state.rsvpTotalPersonal!, this.state.rsvpTotal!)}%</b> rsvp personally and <b>{this.percent(this.state.rsvpTotalWebsite!, this.state.rsvpTotal!)}%</b> rsvp from the website.</span>
+                        <span><b> {this.state.rsvpTotal}</b> guests have rsvp, <b>{this.percent(this.state.rsvpTotalPersonal!, this.state.rsvpTotal!)}%</b> rsvp personally and <b>{this.percent(this.state.rsvpTotalWebsite!, this.state.rsvpTotal!)}%</b> rsvp from the website.</span>
                     ): (undefined)}
                     </p>
-
-                    <p>Double click on plus one's name to edit text</p>
 
                     <div className={"GuestList"}>
                         <table>
