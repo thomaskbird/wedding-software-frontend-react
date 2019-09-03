@@ -31,6 +31,7 @@ export class AdminNavigation extends React.Component<NavigationProps, State> {
                         <ul>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/admin/guest-list"}>Guest List</Link></li>
                             <li><Link onClick={() => this.props.onToggleNavigation()} to={"/admin/music-requested"}>Requested songs</Link></li>
+                            <li><Link onClick={() => this.props.onToggleNavigation()} to={"/print/placecards"}>Placecards</Link></li>
                         </ul>
                     </div>
                 </div>
