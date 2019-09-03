@@ -8,6 +8,7 @@ import { GuestMock } from "src/mocks/Guests";
 import { Containers } from "src/components/partials/structural/Containers";
 import { analyticsSend } from "src/components/Helpers";
 import { TextInputToggler } from "src/components/partials/TextInputToggler";
+import { AdminGuestListFilters } from "src/components/partials/AdminGuestListFilters";
 
 interface Props {
 
@@ -83,7 +84,17 @@ export class AdminGuestList extends React.Component<Props, State> {
         return (
             <Containers>
                 <div className={"GuestList__wrapper"}>
-                    <h2>Guest List</h2>
+                    <div className={"subheader"}>
+                        <div className={"subheader__column"}>
+                            <h2>Guest List</h2>
+                        </div>
+                        <div className={"subheader__column"}>
+                            <AdminGuestListFilters
+                                onFilterData={(key, val) => this.filterData(key, val)}
+                                currentVal={this.state.filterVal}
+                            />
+                        </div>
+                    </div>
 
                     {this.state.guests.length ? (
                         <p><b>{this.state.coming}</b> people are coming, <b>{this.state.notComing}</b> are not coming and <b>{this.state.notResponded}</b> haven't responded</p>
@@ -94,36 +105,6 @@ export class AdminGuestList extends React.Component<Props, State> {
                     ): (undefined)}
 
                     <p>Double click on plus one's name to edit text</p>
-
-                    <div className={"filters"}>
-                        <div className="filters__column">
-                            Filters
-                        </div>
-                        <div
-                            className={`filters__column ${this.state.filterVal === "all" ? "active" : ""}`}
-                            onClick={() => this.filterData("default", "all")}
-                        >
-                            All
-                        </div>
-                        <div
-                            className={`filters__column ${this.state.filterVal === "yes" ? "active" : ""}`}
-                            onClick={() => this.filterData("rsvp", "yes")}
-                        >
-                            Attending
-                        </div>
-                        <div
-                            className={`filters__column ${this.state.filterVal === "no" ? "active" : ""}`}
-                            onClick={() => this.filterData("rsvp", "no")}
-                        >
-                            Not attending
-                        </div>
-                        <div
-                            className={`filters__column ${this.state.filterVal === null ? "active" : ""}`}
-                            onClick={() => this.filterData("rsvp", null)}
-                        >
-                            Hasn't Responded
-                        </div>
-                    </div>
 
                     <div className={"GuestList"}>
                         <table>
