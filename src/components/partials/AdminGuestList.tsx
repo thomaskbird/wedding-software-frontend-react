@@ -199,9 +199,15 @@ export class AdminGuestList extends React.Component<Props, State> {
     }
 
     private filterData(column: any, val: any): void {
-        const filteredData = _.filter(this.state.guests, (user) => {
-            return user[column] === val;
-        });
+        let filteredData = [];
+
+        if(column === "default") {
+            filteredData = this.state.guests;
+        } else {
+            filteredData = _.filter(this.state.guests, (user) => {
+                return user[column] === val;
+            });
+        }
 
         this.setState({
             filteredGuests: filteredData,
