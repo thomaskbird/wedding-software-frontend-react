@@ -15,6 +15,7 @@ interface Props {
 
 interface State {
     guests: User[];
+    filteredGuests: User[];
     coming: number | undefined;
     notComing: number | undefined;
     notResponded: number | undefined;
@@ -30,6 +31,7 @@ export class AdminGuestList extends React.Component<Props, State> {
 
         this.state = {
             guests: [],
+            filteredGuests: [],
             coming: undefined,
             notComing: undefined,
             notResponded: undefined,
@@ -51,6 +53,7 @@ export class AdminGuestList extends React.Component<Props, State> {
 
             this.setState({
                 guests: response.data.guests,
+                filteredGuests: response.data.guests,
                 totalGuests: response.data.guests.length,
                 rsvpTotal: _.filter(response.data.guests, (user) => {
                     return user.rsvp !== null;
@@ -90,6 +93,36 @@ export class AdminGuestList extends React.Component<Props, State> {
 
                     <p>Double click on plus one's name to edit text</p>
 
+                    <div className={"filters"}>
+                        <div className="filters__column">
+                            Filters
+                        </div>
+                        <div
+                            className="filters__column"
+                            onClick={() => this.filterData("default", "all")}
+                        >
+                            All
+                        </div>
+                        <div
+                            className="filters__column"
+                            onClick={() => this.filterData("rsvp", "yes")}
+                        >
+                            Attending
+                        </div>
+                        <div
+                            className={"filters__column"}
+                            onClick={() => this.filterData("rsvp", "no")}
+                        >
+                            Not attending
+                        </div>
+                        <div
+                            className="filters__column"
+                            onClick={() => this.filterData("rsvp", null)}
+                        >
+                            Hasn't Responded
+                        </div>
+                    </div>
+
                     <div className={"GuestList"}>
                         <table>
                             <thead>
@@ -112,7 +145,7 @@ export class AdminGuestList extends React.Component<Props, State> {
                                     <td colSpan={8}>No records</td>
                                 </tr>
                             ): (undefined)}
-                            {this.state.guests.map((guest, i) => (
+                            {this.state.filteredGuests.map((guest, i) => (
                                 <tr className={"GuestList__item"} key={i}>
                                     <td className={"GuestList__item--column"}>{i+1}</td>
                                     <td className={"GuestList__item--column"}>{guest.first_name} {guest.last_name}</td>
@@ -163,6 +196,16 @@ export class AdminGuestList extends React.Component<Props, State> {
                 </div>
             </Containers>
         )
+    }
+
+    private filterData(column: any, val: any): void {
+        const filteredData = _.filter(this.state.guests, (user) => {
+            return user[column] === val;
+        });
+
+        this.setState({
+            filteredGuests: filteredData,
+        });
     }
 
     private percent(subtotal: number, total: number): number {
