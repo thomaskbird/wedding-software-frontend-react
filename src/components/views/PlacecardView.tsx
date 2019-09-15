@@ -71,11 +71,11 @@ export class PlacecardView extends React.Component<Props, State> {
 
     private refreshGuestList(): void {
         axiosInstance.get(`/guest-list`).then(response => {
-            console.log("response", response.data);
-
             const guests = _.filter(response.data.guests, (user) => {
                 return user.rsvp === "yes" && user.table_number !== 11;
             });
+
+            console.log("guests", guests);
 
             this.setState({
                 guests: guests,
