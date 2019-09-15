@@ -77,6 +77,8 @@ export class PlacecardView extends React.Component<Props, State> {
 
             console.log("guests", guests);
 
+            console.log("json", JSON.stringify(guests));
+
             this.setState({
                 guests: guests,
             });
