@@ -33,7 +33,7 @@ export const TimelineMock = [
         id: 4,
         slug: "cocktail-hour-begins",
         title: "Cocktail Hour Begins",
-        description: "Time to get social, doors are open downstairs in the Oak room where the reception will be held. Have a few drinks, eat hors d'oeuvres, get to know some new people before the wedding parties entrance!",
+        description: "Time to get social, doors are open downstairs in the Maple room where the reception will be held. Have a few drinks, eat hors d'oeuvres, get to know some new people before the wedding parties entrance!",
         time: "4:00pm"
     },
     {
