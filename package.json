@@ -99,7 +99,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "0.18.0",
     "lodash": "4.17.11",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "moment-timezone": "0.5.23",
     "npm-font-open-sans": "1.1.0",
     "numeral": "2.0.6",
